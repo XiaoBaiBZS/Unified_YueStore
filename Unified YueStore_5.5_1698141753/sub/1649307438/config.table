@@ -1,0 +1,132 @@
+{
+  ["toolbar"]	= {
+      ["menus"]	= {
+          } ;
+      ["搜索框提示"]	= "" ;
+      ["icon_btns"]	= {
+          [2]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["icon"]	= "1618133642340_edit_9089970217883(1)" ;
+              } ;
+          [1]	= {
+              ["onClick"]	= "刷新网页()" ;
+              ["icon"]	= "1618133982628_edit_8966063928839" ;
+              } ;
+          } ;
+      ["输入栏模式"]	= true ;
+      ["搜索URL"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      } ;
+  ["web"]	= {
+      ["启动网页"]	= "http://shandianpan.com/f/BOAC" ;
+      ["启用长按菜单"]	= true ;
+      ["网页沉浸"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["支持打开外部应用"]	= true ;
+      ["启用进度条"]	= true ;
+      } ;
+  ["fltBtn"]	= {
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["图标"]	= "" ;
+      ["显示"]	= false ;
+      } ;
+  ["sidebar"]	= {
+      ["items"]	= {
+          } ;
+      ["启用"]	= false ;
+      ["启用顶部图片"]	= false ;
+      } ;
+  ["view_attribute"]	= {
+      ["顶栏高度"]	= "60dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "Fonts Pool" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      } ;
+  ["events"]	= {
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["程序启动"]	= "\
+import \"java.net.URLDecoder\"\
+\
+webView.setDownloadListener({ --webview的下载监听\
+  onDownloadStart=function(链接, UA, 处理, 类型, 大小) --接受下载链接的信息\
+    --弹出消息(链接,UA,处理,类型,大小)\
+        strings=处理\
+    url编码=strings:match('attachment; filename=\"(.-)\"')\
+  \
+    --导入包\13\
+import \"android.content.Context\"\13\
+import \"android.net.Uri\"\13\
+\13    对话框()--这里可以查看下载链接的信息\
+    .设置标题(\"Download\")\
+    .设置消息(\"\\nName：\"..URLDecoder.decode(url编码)..\"\\nSize：\"..string.format(\"%.2f\",大小/1048576)..\"MB\\nPosition：Your Phone/Fonts/UYS\")\
+    .设置积极按钮(\"Download\",function()\
+ \
+downloadManager=activity.getSystemService(Context.DOWNLOAD_SERVICE);\13\
+url=Uri.parse(链接);\13\
+request=DownloadManager.Request(url);\13\
+request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE|DownloadManager.Request.NETWORK_WIFI);\13\
+request.setDestinationInExternalPublicDir(\"Fonts/UYS/\",URLDecoder.decode(url编码));\13\
+request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);\13\
+downloadManager.enqueue(request);\
+\
+end)\
+    .显示()\
+  end\
+})" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+for account in io.lines(\"/storage/emulated/0/UYS/主题配置.txt\") do\
+  local content=account\
+  local js=content:match(\"【js】(.-)【js】\")\
+    if js==\"0\" then\
+    \
+else\
+\
+加载Js([[javascript:(function(){var styleElem=null,doc=document,ie=doc.all,fontColor=30,sel=\"body,body *\";styleElem=createCSS(sel,setStyle(fontColor),styleElem);function setStyle(fontColor){var colorArr=[fontColor,fontColor,fontColor];return\"background-color:#000 !important;color:RGB(\"+colorArr.join(\"%,\")+\"%) !important;\"}function createCSS(sel,decl,styleElem){var doc=document,h=doc.getElementsByTagName(\"head\")[0],styleElem=styleElem;if(!styleElem){s=doc.createElement(\"style\");s.setAttribute(\"type\",\"text/css\");styleElem=ie?doc.styleSheets[doc.styleSheets.length-1]:h.appendChild(s)}if(ie){styleElem.addRule(sel,decl)}else{styleElem.innerHTML=\"\";styleElem.appendChild(doc.createTextNode(sel+\" {\"+decl+\"}\"))}return styleElem}})();]])\
+\
+\
+end\
+end\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  ["global_js"]	= "//16:25-46\
+document.getElementsByClassName(\"imfile-banner\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementsByClassName(\"des-container\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementsByClassName(\"footer\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementsByClassName(\"flex items-center share-box\")[0].setAttribute(\"style\",\"display:none\");\
+" ;
+  ["colors"]	= {
+      ["进度条"]	= "#ffe8ffff" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["顶栏"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["顶栏部件"]	= "#ff000000" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      } ;
+  ["switch"]	= {
+      ["显示状态栏"]	= true ;
+      ["横屏"]	= false ;
+      ["启用启动图"]	= false ;
+      ["支持滑动页面"]	= false ;
+      } ;
+  } ;
