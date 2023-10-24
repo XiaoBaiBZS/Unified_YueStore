@@ -1,0 +1,631 @@
+{
+  ["web"]	= {
+      ["启用进度条"]	= true ;
+      ["网页沉浸"]	= false ;
+      ["支持打开外部应用"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= false ;
+      ["启动网页"]	= "" ;
+      } ;
+  ["colors"]	= {
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["进度条"]	= "#00000000" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      } ;
+  ["fltBtn"]	= {
+      ["显示"]	= true ;
+      ["图标"]	= "" ;
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  ["events"]	= {
+      ["程序启动"]	= "local f=io.open(\"/storage/emulated/0/UYS/启动配置.txt\",'r')\
+if f~=nil\
+  then\
+    \
+ else\
+ io.open(\"/storage/emulated/0/UYS/启动配置.txt\", 'w')\
+\
+--io.open(\"/storage/emulated/0/UYS/启动配置.txt\",\"w+\"):write(txt):close()\
+\
+\
+end\
+\
+\
+\
+\
+\
+require\"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+\
+require \"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+import \"android.content.Context\"\
+import \"android.content.Intent\"\
+import \"android.app.PendingIntent\"\
+import \"android.app.Notification\"\
+import \"android.content.Intent\"\
+import \"android.net.Uri\"\
+import \"android.provider.Settings\"\
+local height=activity.getResources().getDimensionPixelSize(activity.getResources().getIdentifier(\"status_bar_height\",\"dimen\",\"android\"));\
+\
+\
+for account in io.lines(\"/storage/emulated/0/UYS/主题配置.txt\") do\
+  local content=account\
+  local 深色=content:match(\"【深色】(.-)【深色】\")\
+  local 强调=content:match(\"【强调】(.-)【强调】\")\
+  if 深色==\"0\" then\
+    背景=\"#f1f3f5\"\
+    框架=\"#ffffffff\"\
+    字体=\"#ff000000\"\
+    动效=0xFFE7E8EA\
+    回色=0xffffffff\
+else\
+背景=\"#ff000000\"\
+    框架=\"#FF212224\"\
+    字体=\"#ffffffff\"\
+    动效=0xff000000\
+    回色=0xFF212224\
+end\
+\
+\
+布局=\
+--主框架\
+\
+{\
+  LinearLayout;--线性布局\
+  layout_width='match_parent';--布局宽度\
+  layout_height='match_parent';--布局高度\
+  background=背景;--布局背景颜色(或者图片路径)\
+  id='ars';\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='wrap',--高度\
+    background=背景,--背景颜色或图片路径\
+    {\
+      CardView;--卡片控件\
+      layout_margin='8dp';--边距\
+      layout_gravity='center';--重力\
+      --左:left 右:right 中:center 顶:top 底:bottom\
+      elevation='0dp';--阴影\
+      layout_width='fill';--宽度\
+      layout_height=height;--高度\
+      CardBackgroundColor=背景;--颜色\
+      radius='';--圆角\
+\
+\
+    };\
+\
+\
+    --纵向滚动框架\
+    {\
+      ScrollView,\
+      layout_width=\"match_parent\";\
+      layout_height=\"match_parent\";\
+      VerticalScrollBarEnabled=false;\
+\
+      {\
+        LinearLayout;--线性布局\
+        Orientation='horizontal';--布局方向\
+        layout_width='match_parent';--布局宽度\
+        layout_height='match_parent';--布局高度\
+        background=背景;--布局背景颜色\
+        id='ars';\
+\
+\
+        -- -----------左边竖布局开始--------------\
+        --左线程框架\
+\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"fill\";\
+          layout_height=\"match_parent\";\
+          layout_marginLeft=\"\";\
+\
+\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='50%w';--宽度\
+            layout_height='50%w';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='tu.png';--图片路径\
+              layout_width='fill';--图片宽度\
+              layout_height='fill';--图片高度\
+              scaleType='fitXY';--图片显示类型\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='80dp';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor=字体;--文字颜色\
+              text='Language Changing';--显示的文字\
+              textSize='22dp';--文字大小\
+              id='en1';\
+            };\
+          };\
+         {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='70dp';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor=字体;--文字颜色\
+              text='选择语言';--显示的文字\
+              textSize='20dp';--文字大小\
+              id='ch1';\
+            };\
+          };\
+\
+\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='3.5%h';--文本高度\
+              gravity='center|left';--重力属性\
+              textColor='#FF8C8C8C';--文字颜色\
+              text=book;--显示的文字\
+              textSize='14dp';--文字大小\
+              layout_margin='';--边距\
+              layout_marginLeft='17dp';--左距\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_margin='';--边距\
+              layout_marginLeft='13dp';--左距\
+              layout_marginRight='13dp';--右距\
+              layout_marginTop='';--顶距\
+              layout_gravity='center';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='16%h';--高度\
+              CardBackgroundColor=框架;--颜色\
+              radius='17dp';--圆角\
+             \
+              {\
+                CardView;--卡片控件\
+                layout_margin='';--边距\
+                layout_gravity='';--重力\
+                layout_marginTop='0%h';--顶距\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='fill';--宽度\
+                layout_height='8%h';--高度\
+                CardBackgroundColor=框架;--颜色\
+                radius='';--圆角\
+                id='b2';\
+                   {\
+                CardView;--卡片控件\
+                layout_margin='18dp';--边距\
+                layout_gravity='center|left';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='2dp';--阴影\
+                layout_width='25dp';--宽度\
+                layout_height='25dp';--高度\
+                CardBackgroundColor=框架;--颜色\
+                radius='25dp';--圆角\
+                id='mp1';\
+                {\
+                  CardView;--卡片控件\
+                  layout_margin='18dp';--边距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='0dp';--阴影\
+                  layout_width='15dp';--宽度\
+                  layout_height='15dp';--高度\
+                  CardBackgroundColor=背景;--颜色\
+                  radius='15dp';--圆角\
+\
+\
+                };\
+              };\
+\
+                {\
+                  TextView;--文本控件\
+                  layout_width='fill';--文本宽度\
+                  layout_height='fill';--文本高度\
+                  gravity='center|left';--重力属性\
+                  textColor=字体;--文字颜色\
+                  text=\"简体中文\";--显示的文字\
+                  textSize='17dp';--文字大小\
+                  layout_margin='8dp';--边距\
+                  id='b2';\
+                  layout_marginLeft='70dp';--左距\
+                };\
+               \
+                \
+                      {\
+                        CardView;--卡片控件\
+                        layout_margin='8dp';--边距\
+                        layout_gravity='center|right';--重力\
+                        --左:left 右:right 中:center 顶:top 底:bottom\
+                        elevation='0dp';--阴影\
+                        layout_width='22dp';--宽度\
+                        layout_height='22dp';--高度\
+                        CardBackgroundColor='0';--颜色\
+                        radius='';--圆角\
+                        id='b2';\
+                        {\
+                          ImageView;--图片控件\
+                          src='http://wp.wadg.pro/view.php/332b0971bbe6511ea8cab46f44584e6e.png';--图片路径\
+                          layout_width='fill';--图片宽度\
+                          layout_height='fill';--图片高度\
+                          scaleType='fitXY';--图片显示类型\
+                          id='b2';\
+                        };\
+                      };\
+                {\
+                  CardView;--卡片控件\
+                  layout_margin='';--边距\
+                  layout_gravity='center|bottom';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='0dp';--阴影\
+                  layout_width='fill';--宽度\
+                  layout_height='1dp';--高度\
+                  CardBackgroundColor=背景;--颜色\
+                  radius='';--圆角\
+                  layout_marginLeft='8dp';--左距\
+                  layout_marginRight='8dp';--右距\
+                };\
+\
+              };\
+\
+              ----\
+\
+              {\
+                CardView;--卡片控件\
+                layout_margin='';--边距\
+                layout_gravity='';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_marginTop='8%h';--顶距\
+                layout_width='fill';--宽度\
+                layout_height='8%h';--高度\
+                CardBackgroundColor=框架;--颜色\
+                radius='';--圆角\
+                id='b3';\
+                   {\
+                CardView;--卡片控件\
+                layout_margin='18dp';--边距\
+                layout_gravity='center|left';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='2dp';--阴影\
+                layout_width='25dp';--宽度\
+                layout_height='25dp';--高度\
+                CardBackgroundColor=框架;--颜色\
+                radius='25dp';--圆角\
+                id='mp2';\
+                {\
+                  CardView;--卡片控件\
+                  layout_margin='18dp';--边距\
+                  layout_gravity='center';--重力\
+                  --左:left 右:right 中:center 顶:top 底:bottom\
+                  elevation='0dp';--阴影\
+                  layout_width='15dp';--宽度\
+                  layout_height='15dp';--高度\
+                  CardBackgroundColor=框架;--颜色\
+                  radius='15dp';--圆角\
+\
+\
+                };\
+              };\
+\
+                {\
+                  TextView;--文本控件\
+                  layout_width='fill';--文本宽度\
+                  layout_height='fill';--文本高度\
+                  gravity='center|left';--重力属性\
+                  textColor=字体;--文字颜色\
+                  text=\"English\";--显示的文字\
+                  textSize='17dp';--文字大小\
+                  layout_margin='8dp';--边距\
+                  layout_marginLeft='70dp';--左距\
+                  id='b3';\
+                };\
+                \
+                \
+                \
+                      {\
+                        CardView;--卡片控件\
+                        layout_margin='8dp';--边距\
+                        layout_gravity='center|right';--重力\
+                        --左:left 右:right 中:center 顶:top 底:bottom\
+                        elevation='0dp';--阴影\
+                        layout_width='22dp';--宽度\
+                        layout_height='22dp';--高度\
+                        CardBackgroundColor='0';--颜色\
+                        radius='';--圆角\
+                        id='b3';\
+                        {\
+                          ImageView;--图片控件\
+                          src='http://wp.wadg.pro/view.php/332b0971bbe6511ea8cab46f44584e6e.png';--图片路径\
+                          layout_width='fill';--图片宽度\
+                          layout_height='fill';--图片高度\
+                          scaleType='fitXY';--图片显示类型\
+                          id='b3';\
+                        };\
+                      };\
+               \
+\
+              };\
+              \
+              };\
+              {\
+CardView;--卡片控件\
+layout_margin='8dp';--边距\
+layout_gravity='center';--重力\
+--左:left 右:right 中:center 顶:top 底:bottom\
+elevation='0dp';--阴影\
+layout_width='fill';--宽度\
+layout_height='25dp';--高度\
+CardBackgroundColor=背景;--颜色\
+radius='8dp';--圆角\
+};\
+              ------------\
+                    {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='200dp';--宽度\
+            layout_height='35dp';--高度\
+            CardBackgroundColor=强调;--颜色\
+            radius='18dp';--圆角\
+            id='进入';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor='#ffffffff';--文字颜色\
+              text='Access APP';--显示的文字\
+              textSize='18dp';--文字大小\
+              id='en2';\
+            };\
+          };\
+              {\
+CardView;--卡片控件\
+layout_margin='8dp';--边距\
+layout_gravity='center';--重力\
+--左:left 右:right 中:center 顶:top 底:bottom\
+elevation='0dp';--阴影\
+layout_width='fill';--宽度\
+layout_height='50%h';--高度\
+CardBackgroundColor=背景;--颜色\
+radius='8dp';--圆角\
+};\
+        };\
+      };\
+    };\
+  };\
+};\
+\
+activity.setContentView(loadlayout(布局))\
+\
+\
+function CircleButton(view,InsideColor,radiu)\
+  import \"android.graphics.drawable.GradientDrawable\"\
+  drawable = GradientDrawable()\
+  drawable.setShape(GradientDrawable.RECTANGLE)\
+  drawable.setColor(InsideColor)\
+  drawable.setCornerRadii({radiu,radiu,radiu,radiu,radiu,radiu,radiu,radiu});\
+  view.setBackgroundDrawable(drawable)\
+end\
+\
+\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+CircleButton(mp1,0xFF0B58F1,35)\
+CircleButton(mp2,0xffffffff,35)\
+en1.setText(\"选择语言\")\
+ch1.setText(\"Language Changing\")\
+ en2.setText(\"进入应用\")\
+ l1=\"应用配置已更改，重新进入应用以更新配置\"\
+ l2=\"现在\"\
+ l3=\"稍后\"\
+ l4=\"您想现在更新配置文件吗？\"\
+else\
+CircleButton(mp2,0xFF0B58F1,35)\
+CircleButton(mp1,0xffffffff,35)\
+en1.setText(\"Language Changing\")\
+ch1.setText(\"选择语言\")\
+en2.setText(\"Access APP\")\
+l1=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+ l2=\"NOW\"\
+ l3=\"LATER\"\
+ l4=\"When do you want to update the configuration？\"\
+end\
+\
+\
+\
+b3.onClick=function()--点击事件\
+      b3.setCardBackgroundColor(动效)\
+      task(80,function()\
+        b3.setCardBackgroundColor(回色)\
+      end)\
+\
+    local txt=\"【应用】1【应用】\"\
+          io.open(\"/storage/emulated/0/UYS/语言配置.txt\",\"w+\"):write(txt):close()\
+          CircleButton(mp2,0xFF0B58F1,35)\
+CircleButton(mp1,0xffffffff,35)\
+en1.setText(\"Language Changing\")\
+ch1.setText(\"选择语言\")\
+en2.setText(\"Access APP\")\
+    end;\
+\
+\
+\
+b2.onClick=function()--点击事件\
+      b2.setCardBackgroundColor(动效)\
+      task(80,function()\
+        b2.setCardBackgroundColor(回色)\
+      end)\
+\
+    local txt=\"【应用】0【应用】\"\
+          io.open(\"/storage/emulated/0/UYS/语言配置.txt\",\"w+\"):write(txt):close()\
+          CircleButton(mp1,0xFF0B58F1,35)\
+CircleButton(mp2,0xffffffff,35)\
+en1.setText(\"选择语言\")\
+ch1.setText(\"Language Changing\")\
+ en2.setText(\"进入应用\")\
+    end;\
+\
+\
+\
+进入.onClick=function()--点击事件\
+  for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+\
+ l1=\"应用配置已更改，重新进入应用以更新配置\"\
+ l2=\"现在\"\
+ l3=\"稍后\"\
+ l4=\"您想现在更新配置文件吗？\"\
+else\
+\
+l1=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+ l2=\"NOW\"\
+ l3=\"LATER\"\
+ l4=\"When do you want to update the configuration？\"\
+end\
+   dialog=AlertDialog.Builder(this)\
+            .setTitle(l4)\
+            .setMessage(l1)\
+            .setPositiveButton(l2,{onClick=function(v)\
+              退出程序() \
+              function 打开程序(包名)\
+  import \"android.content.Intent\"\
+  import \"android.content.pm.PackageManager\"\
+  manager = activity.getPackageManager()\
+  open = manager.getLaunchIntentForPackage(包名)\
+  this.startActivity(open)\
+end\
+--调用方法\
+打开程序(\"com.MyFusApp.UYS\")\
+              \
+              \
+              ;end})\
+            .setNegativeButton(l3,{onClick=function(v) 退出页面();end})\
+            .show()\
+            dialog.create()\
+\
+            import \"android.graphics.Color\"\
+            dialog.getButton(dialog.BUTTON_POSITIVE).setTextColor(0xff1761e8)\
+            dialog.getButton(dialog.BUTTON_NEGATIVE).setTextColor(0xff1761e8)\
+            dialog.getButton(dialog.BUTTON_NEUTRAL).setTextColor(0xff1761e8)\
+\
+     \
+   \
+  end\
+\
+  \
+end;\
+\
+\
+\
+\
+\
+end\
+\
+end" ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["switch"]	= {
+      ["支持滑动页面"]	= true ;
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      ["横屏"]	= false ;
+      } ;
+  ["view_attribute"]	= {
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      } ;
+  ["toolbar"]	= {
+      ["icon_btns"]	= {
+          } ;
+      ["menus"]	= {
+          [1]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["name"]	= "退出" ;
+              } ;
+          } ;
+      ["搜索URL"]	= "" ;
+      ["搜索框提示"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["输入栏模式"]	= true ;
+      } ;
+  ["sidebar"]	= {
+      ["启用顶部图片"]	= false ;
+      ["items"]	= {
+          } ;
+      ["启用"]	= true ;
+      } ;
+  } ;

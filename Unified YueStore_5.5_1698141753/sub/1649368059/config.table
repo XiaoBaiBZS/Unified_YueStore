@@ -1,0 +1,560 @@
+{
+  ["events"]	= {
+      ["程序启动"]	= "\
+require\"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+--沐宇\
+local height=activity.getResources().getDimensionPixelSize(activity.getResources().getIdentifier(\"status_bar_height\",\"dimen\",\"android\"));\
+  --也可以写成这样--来自@\\u4e8c\\u54c8 的简化\
+\
+mygpub=\
+--主框架\
+\
+{\
+  LinearLayout;--线性布局\
+  layout_width='match_parent';--布局宽度\
+  layout_height='match_parent';--布局高度\
+  background='#FFFFFFFF';--布局背景颜色(或者图片路径)\
+  id='ars';\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='wrap',--高度\
+    background='#f1f3f5',--背景颜色或图片路径\
+      {\
+          CardView;--卡片控件\
+          layout_margin='8dp';--边距\
+          layout_gravity='center';--重力\
+          --左:left 右:right 中:center 顶:top 底:bottom\
+          elevation='0dp';--阴影\
+          layout_width='fill';--宽度\
+          layout_height=height;--高度\
+          CardBackgroundColor='#f1f3f5';--颜色\
+          radius='';--圆角\
+        };\
+    {\
+      CardView;--卡片控件\
+      layout_margin='15dp';--边距\
+      layout_gravity='center|top';--重力\
+      --左:left 右:right 中:center 顶:top 底:bottom\
+      elevation='0dp';--阴影\
+      layout_width='fill';--宽度\
+      layout_height='5%h';--高度\
+      CardBackgroundColor='#f1f3f5';--颜色\
+      radius='8dp';--圆角\
+      {\
+        TextView;--文本控件\
+        layout_width='fill';--文本宽度\
+        layout_height='fill';--文本高度\
+        gravity='left|center';--重力属性\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        textColor='#000000';--文字颜色\
+        text='Donate to me';--显示的文字\
+        textSize='20dp';--文字大小\
+      };\
+      {\
+        ImageView;--图片控件\
+        src='gb.png';--图片路径\
+        layout_width='35dp';--图片宽度\
+        layout_height='35dp';--图片高度\
+        scaleType='fitXY';--图片显示类型\
+        layout_gravity='center|right';--卡片重力\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        id='关闭';\
+\
+      };\
+\
+\
+    };\
+\
+\
+    --纵向滚动框架\
+    {\
+      ScrollView,\
+      layout_width=\"match_parent\";\
+      layout_height=\"match_parent\";\
+      VerticalScrollBarEnabled=false;\
+\
+      {\
+        LinearLayout;--线性布局\
+        Orientation='horizontal';--布局方向\
+        layout_width='match_parent';--布局宽度\
+        layout_height='match_parent';--布局高度\
+        background='#f1f3f5';--布局背景颜色\
+        id='ars';\
+\
+\
+        -- -----------左边竖布局开始--------------\
+        --左线程框架\
+\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"fill\";\
+          layout_height=\"match_parent\";\
+          layout_marginLeft=\"1%w\";\
+\
+\
+          {\
+            CardView;--卡片控件\
+            layout_margin='20dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='20%h';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='20dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='donate1.png';--图片路径\
+              layout_width='fill';--图片宽度\
+              layout_height='fill';--图片高度\
+              scaleType='fitXY';--图片显示类型\
+              layout_gravity='center';--卡片重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+\
+            };\
+\
+            ----------------------\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='0dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='37dp';--高度\
+            CardBackgroundColor='#f2f3f5';--颜色\
+            radius='0dp';--圆角\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_marginTop='0dp';--顶距\
+              layout_gravity='top|left';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='40%w';--宽度\
+              layout_height='37dp';--高度\
+              CardBackgroundColor='#FFE7E8EA';--颜色\
+              radius='17dp';--圆角\
+              id='保存微信';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor='#FF0A58F6';--文字颜色\
+                text='Save Code';--显示的文字\
+                textSize='17dp';--文字大小\
+                id='保存微信';\
+              };\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_marginTop='0dp';--顶距\
+              layout_gravity='top|right';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='40%w';--宽度\
+              layout_height='37dp';--高度\
+              CardBackgroundColor='#FFE7E8EA';--颜色\
+              radius='17dp';--圆角\
+              id='打开微信';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor='#FF0A58F6';--文字颜色\
+                text='Open Wechat';--显示的文字\
+                textSize='17dp';--文字大小\
+                id='打开微信';\
+              };\
+            };\
+          };\
+          ------------\
+          {\
+            CardView;--卡片控件\
+            layout_margin='20dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='20%h';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='20dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='donate2.png';--图片路径\
+              layout_width='fill';--图片宽度\
+              layout_height='fill';--图片高度\
+              scaleType='fitXY';--图片显示类型\
+              layout_gravity='center';--卡片重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+\
+            };\
+\
+            ----------------------\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='0dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='37dp';--高度\
+            CardBackgroundColor='#f2f3f5';--颜色\
+            radius='0dp';--圆角\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_marginTop='0dp';--顶距\
+              layout_gravity='top|left';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='40%w';--宽度\
+              layout_height='37dp';--高度\
+              CardBackgroundColor='#FFE7E8EA';--颜色\
+              radius='17dp';--圆角\
+              id='保存QQ';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor='#FF0A58F6';--文字颜色\
+                text='Save Code';--显示的文字\
+                textSize='17dp';--文字大小\
+                id='保存QQ';\
+              };\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_marginTop='0dp';--顶距\
+              layout_gravity='top|right';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='40%w';--宽度\
+              layout_height='37dp';--高度\
+              CardBackgroundColor='#FFE7E8EA';--颜色\
+              radius='17dp';--圆角\
+              id='打开QQ';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor='#FF0A58F6';--文字颜色\
+                text='Open QQ';--显示的文字\
+                textSize='17dp';--文字大小\
+                id='打开QQ';\
+              };\
+            };\
+\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='20dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='20%h';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='20dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='donate3.png';--图片路径\
+              layout_width='fill';--图片宽度\
+              layout_height='fill';--图片高度\
+              scaleType='fitXY';--图片显示类型\
+              layout_gravity='center';--卡片重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+\
+            };\
+\
+            ----------------------\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='0dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='37dp';--高度\
+            CardBackgroundColor='#f2f3f5';--颜色\
+            radius='0dp';--圆角\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_marginTop='0dp';--顶距\
+              layout_gravity='top|left';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='40%w';--宽度\
+              layout_height='37dp';--高度\
+              CardBackgroundColor='#FFE7E8EA';--颜色\
+              radius='17dp';--圆角\
+              id='保存支付宝';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor='#FF0A58F6';--文字颜色\
+                text='Save Code';--显示的文字\
+                textSize='17dp';--文字大小\
+                id='保存支付宝';\
+              };\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_marginTop='0dp';--顶距\
+              layout_gravity='top|right';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='40%w';--宽度\
+              layout_height='37dp';--高度\
+              CardBackgroundColor='#FFE7E8EA';--颜色\
+              radius='17dp';--圆角\
+              id='打开支付宝';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor='#FF0A58F6';--文字颜色\
+                text='Open Alipay';--显示的文字\
+                textSize='17dp';--文字大小\
+                id='打开支付宝';\
+              };\
+\
+\
+\
+            };\
+\
+\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='20dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='37dp';--高度\
+            CardBackgroundColor='#FF0A58F6';--颜色\
+            radius='17dp';--圆角\
+            id='源码';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor='#ffffff';--文字颜色\
+              text='Powered by XiaoBaiBZS';--显示的文字\
+              textSize='17dp';--文字大小\
+              id='源码';\
+            };\
+          };\
+\
+\
+\
+\
+\
+        };\
+\
+\
+      };--左总线程框架结束\
+      -- -----------左边竖布局结束--------------\
+\
+\
+\
+\
+      -- -----------右边竖布局开始--------------\
+      --右总线程框架开始\
+\
+\
+      --右总线程框架结束\
+      -- -----------右边竖布局结束--------------\
+\
+\
+\
+    };--线程布局框架\
+  };--纵向滚动框架\
+};--总框架\
+activity.setContentView(loadlayout(mygpub))\
+------------------布局事件------------\
+\
+关闭.onClick=function()--点击事件\
+  ars.setVisibility(View.GONE)\
+end;\
+------------------------------------------\
+保存微信.onClick=function()--点击事件\
+  下载文件(\"https://txc.gtimg.com/data/318417/2021/0410/db21f47d7823e59850b8d33fe5cb452f.png\")\
+end;\
+----\
+打开微信.onClick=function()--点击事件\
+    \
+import \"android.content.Intent\"\
+  import \"android.content.ComponentName\"\
+  intent = Intent()\
+  intent.setComponent(ComponentName(\"com.tencent.mm\",\"com.tencent.mm.ui.LauncherUI\"))\
+  intent.putExtra(\"LauncherUI.From.Scaner.Shortcut\",true)\
+  intent.setFlags(335544320)\
+  intent.setAction(\"android.intent.action.VIEW\")\
+  activity.startActivity(intent)\
+end;\
+----\
+保存QQ.onClick=function()--点击事件\
+  下载文件(\"https://txc.gtimg.com/data/318417/2021/0921/1d655ecfcfc524c0ade890126fda5549.jpeg\")\
+  \
+end;\
+----\
+打开QQ.onClick=function()--点击事件\
+ import \"android.content.pm.PackageManager\"\
+packageName=\"com.tencent.mobileqq\"\
+if pcall(function() activity.getPackageManager().getPackageInfo(packageName,0) end) then \
+  manager = activity.getPackageManager()\
+  open = manager.getLaunchIntentForPackage(packageName)\
+  this.startActivity(open)\
+else\
+  print(\"Please install QQ to normal jump\")\
+  --这类功能主要通过Intent类来实现\
+  --By__北巷飘雨\
+  import \"android.content.Intent\"\
+  import \"android.net.Uri\"\
+  intent = Intent(\"android.intent.action.VIEW\")\
+  包名=\"com.tencent.mobileqq\"\
+  intent .setData(Uri.parse( \"market://details?id=\"..包名))\
+  this.startActivity(intent)\
+end\
+\
+end;\
+----\
+------------------------------------------\
+保存支付宝.onClick=function()--点击事件\
+  下载文件(\"https://txc.gtimg.com/data/318417/2021/0921/414d193cce743589b1b339597d316822.jpeg\")\
+  \
+end;\
+--------\
+打开支付宝.onClick=function()--点击事件\
+  import \"android.content.pm.PackageManager\"\
+packageName=\"com.eg.android.AlipayGphone\"\
+if pcall(function() activity.getPackageManager().getPackageInfo(packageName,0) end) then \
+  manager = activity.getPackageManager()\
+  open = manager.getLaunchIntentForPackage(packageName)\
+  this.startActivity(open)\
+else\
+  print(\"Please install Alipay to normal jump\")\
+  --这类功能主要通过Intent类来实现\
+  --By__北巷飘雨\
+  import \"android.content.Intent\"\
+  import \"android.net.Uri\"\
+  intent = Intent(\"android.intent.action.VIEW\")\
+  包名=\"com.eg.android.AlipayGphone\"\
+  intent .setData(Uri.parse( \"market://details?id=\"..包名))\
+  this.startActivity(intent)\
+end\
+\
+end;\
+----------\
+源码.onClick=function()--点击事件\
+  \
+进入子页面(\"功能\",{链接=\"https://wds.ecsxs.com/222746.html\"})\
+  \
+end;\
+\
+\
+\
+------" ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      } ;
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["启用启动图"]	= false ;
+      ["支持滑动页面"]	= true ;
+      ["显示状态栏"]	= true ;
+      } ;
+  ["colors"]	= {
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["进度条"]	= "#00000000" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      } ;
+  ["fltBtn"]	= {
+      ["显示"]	= true ;
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      ["图标"]	= "" ;
+      } ;
+  ["sidebar"]	= {
+      ["items"]	= {
+          } ;
+      ["启用"]	= true ;
+      ["启用顶部图片"]	= false ;
+      } ;
+  ["toolbar"]	= {
+      ["搜索框提示"]	= "" ;
+      ["输入栏模式"]	= true ;
+      ["搜索URL"]	= "" ;
+      ["启用搜索功能"]	= false ;
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      ["icon_btns"]	= {
+          } ;
+      } ;
+  ["view_attribute"]	= {
+      ["侧滑栏宽度"]	= "240dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["顶栏高度"]	= "56dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      } ;
+  ["web"]	= {
+      ["支持打开外部应用"]	= true ;
+      ["启用进度条"]	= true ;
+      ["网页沉浸"]	= false ;
+      ["启动网页"]	= "" ;
+      ["启用长按菜单"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  } ;

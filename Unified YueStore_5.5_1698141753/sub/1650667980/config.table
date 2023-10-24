@@ -1,0 +1,787 @@
+{
+  ["colors"]	= {
+      ["顶栏"]	= "#ff2c2e43" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["顶栏部件"]	= "#ffffffff" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["进度条"]	= "#00000000" ;
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  ["view_attribute"]	= {
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["顶栏高度"]	= "56dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "Title" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["侧滑栏宽度"]	= "240dp" ;
+      } ;
+  ["web"]	= {
+      ["网页沉浸"]	= false ;
+      ["启用进度条"]	= true ;
+      ["启用长按菜单"]	= true ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["支持打开外部应用"]	= true ;
+      ["启动网页"]	= "" ;
+      } ;
+  ["fltBtn"]	= {
+      ["显示"]	= true ;
+      ["图标"]	= "" ;
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      } ;
+  ["events"]	= {
+      ["程序启动"]	= "local f=io.open(\"/sdcard/UYS/wy/key/attention/bybzs/wydwy\",'r')\
+if f~=nil \
+then \
+  io.close(f) \
+  退出页面()\
+ 进入子页面(\"埋点\")\
+else \
+  \
+\
+\
+\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+l1=\"UYS账号\"\
+l2=\"登录UYS账号认证YueStore开发者\"\
+l3=\"用户名（仅本地记录，后续可能会用到）\"\
+l4=\"账户（QQ号）\"\
+l5=\"密码\"\
+l6=\"注销账户\"\
+l7=\"密码找回\"\
+l8=\"登录\"\
+l9=\"注册UYS账户\"\
+l10=\"取消登录\"\
+l11=\"云储互联\"\
+l12=\"登录您的账户管理悦心应用市场后台\"\
+l13=\"悦心社区管理\"\
+l14=\"登录您的账户管理悦心社区后台\"\
+l15=\"问卷管理\"\
+l16=\"获取用户提供的信息\"\
+l17=\"资源库\"\
+l18=\"字体资源\"\
+l19=\"商用免费字体资源\"\
+l20=\"其他\"\
+l21=\"图像参数配置\"\
+l22=\"更改图像及文本样式\"\
+l23=\"关于此应用\"\
+l24=\"检查更新等\"\
+l25=\"多语言\"\
+l26=\"选择适合您的语种\"\
+l27=\"主题与配色\"\
+l28=\"更好的视觉体验\"\
+l29=\"由@XiaoBaiBZS提供技术支持\"\
+\
+l30=\"用户统计管理\"\
+l31=\"了解用户趋势和应用发展\"\
+\
+l32=\"超文本标记语言源代码生成\"\
+l33=\"快速添加应用生成云储HTML代码\"\
+\
+\
+\
+\
+\
+else\
+l1 = \" UYS Account\"\
+ l2=\"Login account to authenticate YUE developer\"\
+ l3 =\" Username (local record only, may be used later)\"\
+ l4 = \"Account number (QQ)\"\
+ l5 =\"Password\"\
+ l6 = \"Delete\"\
+ l7 = \"Retrieved\"\
+ l8 = \"Login\"\
+ l9 =\"Rgister Account\"\
+ l10 = \"Cancel Login\"\
+ l11=\"Cloud Storage Interconnection\"\
+l12=\"Upload the code to the cloud for easy sharing with users\"\
+l13=\"Manage Community\"\
+l14=\"Log in to manage members and other things\"\
+l15=\"Manage Questionnaire\"\
+l16=\"Get the information that the user provides you\"\
+l17=\"Resource Library\"\
+l18=\"Font Resources\"\
+l19=\"Commercially available free fonts\"\
+l20=\"Others\"\
+l21=\"Image Parameter Configuration\"\
+l22=\"Change icon and text style\"\
+l23=\"About this APP\"\
+l24=\"Check for updates and some other\"\
+l25=\"Language\"\
+l26=\"Choose the right language for you\"\
+l27=\"Theme and Color\"\
+l28=\"Better visual experience\"\
+l29=\"Powered by XiaoBaiBZS\"\
+\
+l30=\"Manage User Stats\"\
+l31=\"Understanding user trends and application development\"\
+\
+l32=\"YueStore HTML Generation\"\
+l33=\"Quick add application to generate Cloud Storage HTML code\"\
+\
+\
+\
+end\
+for account in io.lines(\"/storage/emulated/0/UYS/主题配置.txt\") do\
+  local content=account\
+  local 深色=content:match(\"【深色】(.-)【深色】\")\
+  local 强调=content:match(\"【强调】(.-)【强调】\")\
+  if 深色==\"0\" then\
+    背景=\"#f1f3f5\"\
+    框架=\"#ffffffff\"\
+    字体=\"#ff000000\"\
+    动效=0xFFE7E8EA\
+    回色=0xffffffff\
+else\
+背景=\"#ff000000\"\
+    框架=\"#FF212224\"\
+    字体=\"#ffffffff\"\
+    动效=0xff000000\
+    回色=0xFF212224\
+end\
+\
+\
+require\"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+require \"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+import \"android.content.Context\"\
+import \"android.content.Intent\"\
+import \"android.app.PendingIntent\"\
+import \"android.app.Notification\"\
+import \"android.content.Intent\"\
+import \"android.net.Uri\"\
+import \"android.provider.Settings\"\
+dwydl=\
+--主框架\
+{\
+  LinearLayout;--线性布局\
+  layout_width='match_parent';--布局宽度\
+  layout_height='match_parent';--布局高度\
+  background=背景;--布局背景颜色(或者图片路径)\
+  id='s';\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='wrap',--高度\
+    background=背景,--背景颜色或图片路径\
+\
+    {\
+      ScrollView,\
+      layout_width=\"match_parent\";\
+      layout_height=\"match_parent\";\
+      VerticalScrollBarEnabled=false;\
+\
+      {\
+        LinearLayout;--线性布局\
+        Orientation='horizontal';--布局方向\
+        layout_width='match_parent';--布局宽度\
+        layout_height='match_parent';--布局高度\
+        background=背景;--布局背景颜色\
+        id='s';\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"fill\";\
+          layout_height=\"match_parent\";\
+          layout_marginLeft=\"\";\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='3%h';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='100dp';--宽度\
+            layout_height='100dp';--高度\
+            CardBackgroundColor=\"#ffffffff\";--颜色\
+            radius='17dp';--圆角\
+            {\
+              ImageView;--图片控件\
+              src='icon.png';--图片路径\
+              layout_width='fill';--图片宽度\
+              layout_height='fill';--图片高度\
+              scaleType='fitXY';--图片显示类型\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='22dp';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor=字体;--文字颜色\
+              text=l1;--显示的文字\
+              textSize='19dp';--文字大小\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='5dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='18dp';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor='#FF999999';--文字颜色\
+              text=l2;--显示的文字\
+              textSize='14dp';--文字大小\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='5%h';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='10%h';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+\
+            {\
+              EditText,--输入框控件\
+              layout_width=\"80%w\",--布局宽度\
+              layout_height=\"wrap\",--布局高度\
+              hint=l3,--编辑框内容为空时提示\
+              layout_margin='';--边距\
+              layout_gravity='center';--卡片重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              layout_marginLeft='8dp';--左距\
+              layout_marginRight='8dp';--右距\
+              hintTextColor='#FF6B6C6E';--提示文字颜色\
+              textColor=字体;--输入文字的颜色\
+              textSize=\"14sp\",--文本大小\
+              --imeOptions=\"actionNone\",--无\
+              --imeOptions=\"actionSearch\",--搜索\
+              --编辑框｜只可输入数字\
+              --imeOptions=\"actionSend\",--发送\
+              --imeOptions=\"actionGo\",--前往\
+              --imeOptions=\"actionDone\",--完成\
+              imeOptions=\"actionNext\",--下一个\
+              --imeOptions=\"actionPrevious\",--上一个\
+              singleLine=true,--禁止换行输入\
+              id=\"edits3\",--控件ID\
+          },};\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='10%h';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+\
+            {\
+              EditText,--输入框控件\
+              layout_width=\"80%w\",--布局宽度\
+              layout_height=\"wrap\",--布局高度\
+              layout_margin='';--边距\
+              layout_gravity='center';--卡片重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              layout_marginLeft='8dp';--左距\
+              layout_marginRight='8dp';--右距\
+              hint=l4,--编辑框内容为空时提示\
+              hintTextColor='#FF6B6C6E';--提示文字颜色\
+              textColor=字体;--输入文字的颜色\
+              textSize=\"14sp\",--文本大小\
+              --inputType=\"number\",--设置只可输入数字\
+              --imeOptions=\"actionNone\",--无\
+              --imeOptions=\"actionSearch\",--搜索\
+              --imeOptions=\"actionSend\",--发送\
+              --imeOptions=\"actionGo\",--前往\
+              --imeOptions=\"actionDone\",--完成\
+              imeOptions=\"actionNext\",--下一个\
+              --imeOptions=\"actionPrevious\",--上一个\
+              singleLine=true,--禁止换行输入\
+              id=\"edits4\",--控件ID\
+            },\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='10%h';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+\
+            {\
+              EditText,--输入框控件\
+              layout_width=\"80%w\",--布局宽度\
+              layout_height=\"wrap\",--布局高度\
+              layout_margin='';--边距\
+              layout_gravity='center';--卡片重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              layout_marginLeft='8dp';--左距\
+              layout_marginRight='8dp';--右距\
+              hint=l5,--编辑框内容为空时提示\
+              hintTextColor='#FF6B6C6E';--提示文字颜色\
+              textColor=字体;--输入文字的颜色\
+              textSize=\"14sp\",--文本大小\
+              --inputType=\"number\",--设置只可输入数字\
+              -- imeOptions=\"actionNone\",--无\
+              --imeOptions=\"actionSearch\",--搜索\
+              --imeOptions=\"actionSend\",--发送\
+              imeOptions=\"actionGo\",--前往\
+              -- imeOptions=\"actionDone\",--完成\
+              --imeOptions=\"actionNext\",--下一个\
+              --imeOptions=\"actionPrevious\",--上一个\
+              singleLine=true,--禁止换行输入\
+              id=\"edits5\",--控件ID\
+            },\
+          };\
+\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='6%h';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_gravity='center|left';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='25%w';--宽度\
+              layout_height='30dp';--高度\
+              CardBackgroundColor=背景;--颜色\
+              radius='5dp';--圆角\
+              id='注销';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor=强调;--文字颜色\
+                text=l6;--显示的文字\
+                textSize='14dp';--文字大小\
+              };\
+            };\
+            {\
+              CardView;--卡片控件\
+              layout_margin='20dp';--边距\
+              layout_gravity='center|right';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='20%w';--宽度\
+              layout_height='30dp';--高度\
+              CardBackgroundColor=背景;--颜色\
+              radius='5dp';--圆角\
+              id='找回';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='center';--重力属性\
+                textColor=强调;--文字颜色\
+                text=l7;--显示的文字\
+                textSize='15dp';--文字大小\
+              };\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='20dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='80%w';--宽度\
+            layout_height='35dp';--高度\
+            CardBackgroundColor=强调;--颜色\
+            radius='17dp';--圆角\
+            id='登';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor='#ffffffff';--文字颜色\
+              text=l8;--显示的文字\
+              textSize='18dp';--文字大小\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='17dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='80%w';--宽度\
+            layout_height='35dp';--高度\
+            CardBackgroundColor=框架;--颜色\
+            radius='17dp';--圆角\
+            id='注';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor=强调;--文字颜色\
+              text=l9;--显示的文字\
+              textSize='18dp';--文字大小\
+            };\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='17dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='80%w';--宽度\
+            layout_height='35dp';--高度\
+            CardBackgroundColor=框架;--颜色\
+            radius='17dp';--圆角\
+            id='关闭';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor=强调;--文字颜色\
+              text=l10;--显示的文字\
+              textSize='18dp';--文字大小\
+            };\
+          };\
+\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='10%w';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+\
+          };\
+                 {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='10%w';--高度\
+            CardBackgroundColor=背景;--颜色\
+            radius='8dp';--圆角\
+          };\
+        };\
+      };\
+    };\
+  };\
+};\
+\
+activity.setContentView(loadlayout(dwydl)) \
+\
+登.onClick=function()--点击事件\
+  登.setCardBackgroundColor(动效)\
+  task(80,function()\
+    登.setCardBackgroundColor(回色)\
+  end)\
+\
+  e=\"1\"\
+  Http.get(\"https://wds.ecsxs.com/224285.html\",function(code,ym)\
+    if code==200 then\
+      local 信息=ym:match(\"(.+)\")\
+      local 信息=信息:gmatch(\"【开始】(.-)【/开始】\")\
+      for v in 信息 do\
+        local 账户=v:match(\"【账户】(.-)【账户】\")\
+        local 密码=v:match(\"【密码】(.-)【密码】\")\
+\
+        local ku=\"1\"\
+        if edits4.text == 账户 and edits5.text == 密码\
+          then\
+            \
+\
+\
+  local txt=\"【name】\"..edits3.text..\"【name】【avatar】http://q.qlogo.cn/headimg_dl?dst_uin=\".. edits4.text..\"%26spec=640%26img_type=jpg【avatar】【openid】\"..string.format(\"%.0f\",edits4.text*2+375804679)..\"【openid】【qq】\"..edits4.text..\"【qq】\"\
+  io.open(\"/storage/emulated/0/UYS/files/Account.txt\",\"w+\"):write(txt):close()\
+\
+\
+          print\"Hello.Yue开发者，您好！\"\
+          --使用File类\
+          import \"java.io.File\"--导入File类\
+\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/wy/key/attention/bybzs/wydwy\").mkdirs()\
+          --创建多级文件夹\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/wy/abc/attention/bybzs/\").mkdirs()\
+          --创建多级文件夹\
+          --创建多级文件夹\
+          --创建多级文件夹\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/wy/key/attentin/bybzs/wydwy\").mkdirs()\
+          --创建多级文件夹\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/wy/nil/attention/bybzs/wydwy\").mkdirs()\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/BZS/key/attention/bybzs/wydwy\").mkdirs()\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/wy/key/attention/bybzs/wydwy\").mkdirs()\
+          File(\"/sdcard/UYS/wy/key/attntion/KEY/wydwy\").mkdirs()\
+          File(\"/sdcard/UYS/wy/KEY/attention/bybzs/KEY\").mkdirs()\
+          File(\"/sdcard/UYS/wy/kEy/attentiWon/s/wydwy\").mkdirs()\
+          --创建多级文件夹\
+          File(\"/sdcard/UYS/wy/keY/attentiLon/byzs/wydwy\").mkdirs()\
+          File(\"/sdcard/UYS/wy/Key/ABC/bybzs/wydwy\").mkdirs()\
+          File(\"/sdcard/UYS/wy/key/attention/bybzs/wydwy\").mkdirs()\
+          print\"登录成功\" e=\"0\"\
+           退出页面()\
+           进入子页面(\"埋点\")\
+--s.setVisibility(View.GONE)\
+  \
+         elseif edits4.text ~= QQ and edits5.text == 密钥\
+          then print\"密钥错误\" e=\"0\"\
+\
+         elseif edits4.text == QQ and edits5.text ~= 密钥\
+          then print\"密钥错误\" e=\"0\"\
+\
+         elseif edits4.text ~= QQ and edits5.text ~= 密钥\
+          then\
+        \
+           elseif edits4.text ==\"\" or edits5.text ==\"\"\
+            then print\"请输入您的账户信息\"\
+          end\
+        end\
+        if e==\"1\"then print\"数据库没有您的账户信息\" e=\"0\"\
+           else end\
+       else\
+        print\"网络连接失败\"\
+      end\
+    end)\
+\
+\
+\
+  end;\
+  找回.onClick=function()--点击事件\
+    找回.setCardBackgroundColor(动效)\
+    task(80,function()\
+      找回.setCardBackgroundColor(回色)\
+      print\"请使用您的QQ邮箱向管理人员发送“密码找回”，管理人员会在24h内审核并向您发送通知。\"\
+    end)\
+    发送邮件(\"1298589907@qq.com\")\
+  end;\
+  注销.onClick=function()--点击事件\
+    注销.setCardBackgroundColor(动效)\
+    task(80,function()\
+      注销.setCardBackgroundColor(回色)\
+\
+    end)\
+      print\"请使用您的QQ邮箱向管理人员发送“账户注销”，管理人员会在24h内审核并在数据库中注销您的信息，完成或处理异常将向您发送通知。\"\
+ \
+ 执行Shell(\"rm -rf /storage/emulated/0/UYS/BZS\")\
+  执行Shell(\"rm -rf /storage/emulated/0/UYS/wy\")\
+  local txt=\"【name】请登录【name】【avatar】【avatar】【openid】【openid】【qq】【qq】\"\
+  io.open(\"/storage/emulated/0/UYS/files/Account.txt\",\"w+\"):write(txt):close()\
+发送邮件(\"1298589907@qq.com\")\
+  end;\
+    关闭.onClick=function()--点击事件\
+    关闭.setCardBackgroundColor(动效)\
+    task(80,function()\
+   --  s.setVisibility(View.GONE)\
+  \
+      关闭.setCardBackgroundColor(回色)\
+    end)\
+  退出页面()\
+  end;\
+  注.onClick=function()--点击事件\
+    注.setCardBackgroundColor(动效)\
+    task(80,function()\
+      注.setCardBackgroundColor(回色)\
+    end)\
+  print\"Yue欢迎您的加入，如果您希望帮助Yue开发的更好，欢迎入群：424033580（已复制），也可以和该软件开发者小白BZS联系。\"\
+  import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(\"424033580\")\
+ \
+   发送邮件(\"1298589907@qq.com\")\
+ end;\
+\
+\
+  end\
+end\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      } ;
+  ["toolbar"]	= {
+      ["menus"]	= {
+          [1]	= {
+              ["name"]	= "退出" ;
+              ["onClick"]	= "退出页面()" ;
+              } ;
+          } ;
+      ["搜索框提示"]	= "" ;
+      ["icon_btns"]	= {
+          } ;
+      ["输入栏模式"]	= true ;
+      ["启用搜索功能"]	= false ;
+      ["搜索URL"]	= "" ;
+      } ;
+  ["sidebar"]	= {
+      ["items"]	= {
+          } ;
+      ["启用"]	= true ;
+      ["启用顶部图片"]	= false ;
+      } ;
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["支持滑动页面"]	= true ;
+      ["启用启动图"]	= false ;
+      ["显示状态栏"]	= true ;
+      } ;
+  } ;

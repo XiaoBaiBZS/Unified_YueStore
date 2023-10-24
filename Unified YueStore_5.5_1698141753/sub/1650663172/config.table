@@ -1,0 +1,3438 @@
+{
+  ["sidebar"]	= {
+      ["items"]	= {
+          [1]	= {
+              ["onClick"]	= "\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+    l1=\"悦心应用市场超文本标记语言源代码生成\"\
+    l2=\"应用名\"\
+    l3=\"版本号\"\
+    l4=\"更新时间\"\
+    l5=\"请设置\"\
+    l6=\"复制成功\"\
+    l7=\"\"\
+    l8=\"下载链接\"\
+    l9=\"更新特性\"\
+    l10=\"介绍图1\"\
+    l11=\"介绍图2\"\
+    l12=\"介绍图3\"\
+    l13=\"介绍图4\"\
+    l14=\"介绍图5\"\
+    l15=\"介绍图6\"\
+    l16=\"应用介绍\"\
+    l17=\"详细介绍\"\
+\
+    l18=\"包名\"\
+    l19=\"大小\"\
+    l20=\"联系方式\"\
+\
+    l21=\"开发者\"\
+    l22=\"推荐90-100px\"\
+    l23=\"您无需键入数值单位，默认单位是px\"\
+\
+    l24=\"设置文本大小\"\
+    l25=\"默认大小为23dp\"\
+\
+    l26=\"设置文本颜色\"\
+\
+    l27=\"好的\"\
+    l28=\"取消\"\
+\
+    l29=\"应用配置已更改，重新进入应用以更新配置\"\
+    l30=\"现在\"\
+    l31=\"稍后\"\
+    l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+   else\
+    l1=\"YueStore HTML Generation\"\
+    l2=\"APP ID\"\
+    l3=\"Href\"\
+    l4=\"Image Url\"\
+    l5=\"Please Set\"\
+    l6=\"The no rounded corners icon\"\
+    l7=\"Custom Rounded Corners\"\
+    l8=\"Tap to set rounded corners\"\
+    l9=\"Text parameter configuration\"\
+    l10=\"Text Size\"\
+    l11=\"Tap to set text size\"\
+    l12=\"Text Color\"\
+    l13=\"Tap to set text color\"\
+    l14=\"Default Font\"\
+    l15=\"The font provided by the system manufacturer\"\
+    l16=\"Custom Font\"\
+    l17=\"Tap to set font\"\
+\
+    l18 =\"Set icon size\"\
+    l19 =\"Default size is 90DP\"\
+    l20 =\"You do not need to type numeric units, the default is DP\"\
+    l21 =\"Set corner mask\"\
+    l22 =\"Recommended 90-100px\"\
+    l23 =\"You do not need to type numeric units, the default is PX\"\
+    l24 =\"Set text size\"\
+    l25 =\"Default size 23DP\"\
+    l26 =\"Set text color\"\
+    l27 =\"OK\"\
+    l28 =\"Cancel\"\
+\
+    l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+    l30=\"NOW\"\
+    l31=\"LATER\"\
+    l32=\"When do you want to update the configuration？\"\
+  end\
+\
+\
+\
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    layout_width='fill';--布局宽度\13\
+  layout_height='fill';--布局高度\13\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    };\
+   {\
+      EditText;\
+      hint=\"应用名称\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit1\";\
+    };\
+    {\
+      EditText;\
+      hint=\"应用包名\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit2\";\
+    };\
+    {\
+      EditText;\
+      hint=\"应用版本\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit3\";\
+    };\
+    {\
+      EditText;\
+      hint=\"更新时间\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+      id=\"edit4\";\
+    };\
+    {\
+      EditText;\
+      hint=\"开发者\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit5\";\
+    };\
+    {\
+      EditText;\
+      hint=\"联系方式\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit6\";\
+    };\
+    {\
+      EditText;\
+      hint=\"大小\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit7\";\
+    };\
+    {\
+      EditText;\
+      hint=\"下载链接\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit8\";\
+    };\
+ {\
+      EditText;\
+      hint=\"应用介绍\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+      id=\"edit9\";\
+    };\
+  \
+ {\
+      EditText;\
+      hint=\"版本特性\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+      id=\"edit20\";\
+    };\
+   \
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(\"第二页\",{onClick=\
+\
+    function(v)\
+    \
+     \
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    layout_width='fill';--布局宽度\13\
+  layout_height='fill';--布局高度\13\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    }; {\
+      EditText;\
+      hint=\"应用类别\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit10\";\
+    };\
+    {\
+      EditText;\
+      hint=\"系统\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit11\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图1\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit12\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图2\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit13\";\
+    };\
+  {\
+      EditText;\
+      hint=\"介绍图3\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit14\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图4\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit15\";\
+    };\
+  {\
+      EditText;\
+      hint=\"介绍图5\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit16\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图6\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit17\";\
+    };\
+  {\
+      EditText;\
+      hint=\"应用图标\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit18\";\
+    };\
+   {\
+      EditText;\
+      hint=\"适用于YUE的应用标识\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      InputType=\"number\";\
+      layout_gravity=\"center\",\
+      id=\"edit19\";\
+    };\
+\
+   \
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(\"完成\",{onClick=\
+\
+    function(v)\
+    \
+     文本=[[\
+<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">\
+<html><head>\
+   <meta charset=\"utf-8\">\
+   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no\">\
+   <meta name=\"referrer\" content=\"never\">\
+   <meta http-equiv=\"Cache-Control\" content=\"no-siteapp,must-revalidate\">\
+   <meta name=\"sharename\" itemprop=\"name\" content=\"软件名称\">\
+   <meta name=\"keywords\" itemprop=\"keywords\" content=\"   软件简介\">\
+   <meta name=\"shareimage\" itemprop=\"image\" content=\"https://home.yuesq.cf/favicon.png\">\
+   <meta name=\"description\" itemprop=\"description\" content=\"   简介\">\
+   <meta name=\"yunchu-template\" content=\"2\">  <meta name=\"is-edit\" content=\"0\">\
+   <meta name=\"author\" content=\"©0047ol\">\
+   <meta name=\"copyright\" content=\"©YUE\">\
+   <title>]]..edit1.Text..[[</title>\
+   <link type=\"image/png\" rel=\"shortcut icon\" href=\"]]..edit18.Text..[[\">\
+   <link type=\"text/css\" rel=\"stylesheet\" href=\"//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css\">\
+  </head><body class=\"mdui-theme-primary-blue mdui-theme-accent-blue mdui-color-grey-50 mdui-theme-layout-auto main-layout mdui-loaded\">\
+   <div class=\"mdui-valign mdui-color-white mdui-p-t-2 mdui-p-x-2\">\
+    <a class=\"mdui-btn mdui-btn-icon mdui-text-color-theme-icon mdui-hidden\"><i class=\"mdui-icon material-icons\">share</i></a>\
+    <div class=\"mdui-toolbar-spacer\"></div>\
+ \
+    </div>\
+   <div class=\"mdui-valign mdui-color-white mdui-p-b-4\">\
+    <div class=\"mdui-center\">\
+     <img class=\"mdui-center mdui-shadow-1 app_icon\" src=\"https://img14.360buyimg.com/ddimg/jfs/t1/136133/33/22389/8178/6166f764Ec92db56d/d7c7d48a09f2eb8b.png\" width=\"70px\" height=\"70px\" style=\"border-radius: 5px;\">\
+     <p class=\"mdui-text-center mdui-typo-title doc_tle\">]]..edit1.Text..[[</p>\
+     <p class=\"mdui-text-center mdui-typo-subheading-opacity\">ID『]]..edit19.Text..[[』   | 中文 | <span id=\"/211552.html\" class=\"waline-visitor-count\"></span>+次浏览|  ]]..edit10.Text..[[</p><div class=\"mdui-valign\">\
+   \
+    <a class=\"mdui-btn mdui-center mdui-color-theme-accent down_url\" id=\"更新链接\" href=\"]]..edit8.Text..[[\" id=\"更新链接\" target=\"_blank\"><i class=\"mdui-icon mdui-icon-left material-icons\">android</i> 获取应用 <font class=\"app_ver\"> </font></a>\9</div>\
+   </div>\
+   </div>\
+   <div class=\"mdui-m-t-1 mdui-p-t-2 mdui-p-x-2 mdui-color-white\">\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>版本特性\
+  \
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2 update_log\">]]..edit20.Text..[[</div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>应用截图\
+   </div>\
+    <div class=\"mdui-p-a-2\">\
+<style>\
+.appshot{\
+overflow: auto; \
+white-space:nowrap;\
+}\
+</style>\
+<div class=\"appshot\">\
+<a href=\"]]..edit12.Text..[[\"><img src=\"]]..edit12.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit13.Text..[[\"><img src=\"]]..edit13.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit14.Text..[[\"><img src=\"]]..edit14.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit15.Text..[[\"><img src=\"]]..edit15.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit16.Text..[[\"><img src=\"]]..edit16.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit17.Text..[[\"><img src=\"]]..edit17.Text..[[\" width:auto height=\"25%\"></a>\
+</div>\
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>应用介绍\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2 app_desc\">]]..edit9.Text..[[</div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>详细信息\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>应用包名：<font class=\"package_name\">]]..edit2.Text..[[</font></div>\
+     <div>应用版本：<font class=\"app_version\">]]..edit3.Text..[[</font></div>\
+     <div>大小：]]..edit7.Text..[[</div>\
+     <div>更新时间：<font class=\"update_time\">]]..edit4.Text..[[</font></div>\
+     <div>开发者：<font class=\"author\">]]..edit5.Text..[[</font></div>\
+     <div>系统支持：未知</div>\
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>所需权限\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>\
+完全的网络访问权限<br>查看网络连接<br>读取存储卡中的内容<br>修改或删除 SD 卡中的内容<br>访问下载管理器。<br>防止手机休眠<br>高级下载管理器功能。<br>从您的媒体收藏中读取位置信息</div>\
+   \
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>联系方式\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>]]..edit6.Text..[[</div>\
+   \
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>评论区\
+    </div>\
+<!-- 使用短链接获取最新的默认文件 --> <script src=\"//cdn.jsdelivr.net/npm/@waline/client\"></script> <!-- 省略版本号以自动应用最新版本 --> <script src=\"//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js\"></script> <!-- 或者手动指定最新版本 --> <script src=\"//cdn.jsdelivr.net/@waline/clien@latest/dist/Waline.min.js\"></script>\
+\
+  <div id=\"waline\"></div>\
+  <script>\
+    Waline({\
+      \
+      el: '#waline',\
+      serverURL: 'https://yue.vercel.app',\
+      visitor: true, // 阅读量统计\
+    \
+    // 设置 emoji 为QQ与哔哩哔哩\
+  emoji: [\
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',\
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',\
+  ],\
+});\
+  </script>\
+   </div>\
+   <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js\"></script>\
+   <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/gh/0047ol/yunchu@master/assets/js/clipboard.min.js\"></script>\
+   <script>\
+//\
+document.getElementsByClassName(\"vpower\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementsByTagName(\"svg\")[0].setAttribute(\"style\",\"display:none\");\
+   </script>\
+   </body>\
+   </html>]] \
+     import \"android.content.*\"\
+        activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+      \
+     print(l6)\
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+     \
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+              ["icon"]	= "drawable/1638971170570.png" ;
+              ["name"]	= "添加新应用\
+Add New App" ;
+              } ;
+          [2]	= {
+              ["onClick"]	= "\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+l1=\"悦心应用市场超文本标记语言源代码生成\"\
+l2=\"应用唯一身份标识\"\
+l3=\"超链接目标地址\"\
+l4=\"图像链接\"\
+l5=\"请设置\"\
+l6=\"复制成功\"\
+l7=\"自定义圆角遮罩\"\
+l8=\"统一图标圆角样式\"\
+l9=\"文本参数配置\"\
+l10=\"文本大小\"\
+l11=\"轻触设置文本大小\"\
+l12=\"文本颜色\"\
+l13=\"轻触设置文本颜色\"\
+l14=\"默认字体样式\"\
+l15=\"由系统服务商提供\"\
+l16=\"Copy\"\
+l17=\"轻触设置字体样式\"\
+\
+l18=\"设置图标大小\"\
+l19=\"默认大小为90dp\"\
+l20=\"您无需键入数值单位，默认单位是dp\"\
+\
+l21=\"设置圆角遮罩\"\
+l22=\"推荐90-100px\"\
+l23=\"您无需键入数值单位，默认单位是px\"\
+\
+l24=\"设置文本大小\"\
+l25=\"默认大小为23dp\"\
+\
+l26=\"设置文本颜色\"\
+\
+l27=\"好的\"\
+l28=\"取消\"\
+\
+l29=\"应用配置已更改，重新进入应用以更新配置\"\
+ l30=\"现在\"\
+ l31=\"稍后\"\
+ l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+else\
+l1=\"YueStore HTML Generation\"\
+l2=\"APP ID\"\
+l3=\"Href\"\
+l4=\"Image Url\"\
+l5=\"Please Set\"\
+l6=\"The no rounded corners icon\"\
+l7=\"Custom Rounded Corners\"\
+l8=\"Tap to set rounded corners\"\
+l9=\"Text parameter configuration\"\
+l10=\"Text Size\"\
+l11=\"Tap to set text size\"\
+l12=\"Text Color\"\
+l13=\"Tap to set text color\"\
+l14=\"Default Font\"\
+l15=\"The font provided by the system manufacturer\"\
+l16=\"Custom Font\"\
+l17=\"Tap to set font\"\
+\
+l18 =\"Set icon size\"\
+l19 =\"Default size is 90DP\"\
+l20 =\"You do not need to type numeric units, the default is DP\"\
+l21 =\"Set corner mask\"\
+l22 =\"Recommended 90-100px\"\
+l23 =\"You do not need to type numeric units, the default is PX\"\
+l24 =\"Set text size\"\
+l25 =\"Default size 23DP\"\
+l26 =\"Set text color\"\
+l27 =\"OK\"\
+l28 =\"Cancel\"\
+\
+l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+ l30=\"NOW\"\
+ l31=\"LATER\"\
+ l32=\"When do you want to update the configuration？\"\
+end\
+\
+\
+\
+InputLayout={\
+  LinearLayout;\
+  orientation=\"vertical\";\
+  Focusable=true,\
+  FocusableInTouchMode=true,\
+  {\
+    TextView;\
+\
+    textSize=\"15sp\",\
+    layout_marginTop=\"10dp\";\
+    layout_marginLeft=\"3dp\",\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    text=\"\";\
+\
+  };\
+  {\
+    EditText;\
+    hint=l2;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    InputType=\"numberDecimal\";--设置只可输入数字和点\
+    id=\"edit4\";\
+  };\
+  {\
+    EditText;\
+    hint=l3;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"edit5\";\
+  };\
+  {\
+    EditText;\
+    hint=l4;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"edit6\";\
+  };\
+\
+};\
+AlertDialog.Builder(this)\
+.setTitle(l1)\
+.setView(loadlayout(InputLayout))\
+.setPositiveButton(l27,{onClick=\
+\
+  function(v)\
+    if tostring(edit4.Text) < tostring(2)then\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"20%%\"/></a> <div id=\"工具类埋点\"></div>'\
+\
+          文本=string.gsub(content,'<div id=\"工具类埋点\"></div>',new,1)\
+import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+ print(l6)\
+        end)\
+      end\
+     elseif tostring(edit4.Text) < tostring(3) then\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"20%%\"/></a> <div id=\"生活学习埋点\"></div>'\
+          --  print(new)\
+\
+          文本=string.gsub(content,'<div id=\"生活学习埋点\"></div>',new,1)\
+          --先导入包\
+          import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+          print(l6)\
+\
+        end)\
+      end\
+     else\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"20%%\"/></a> <div id=\"影音埋点\"></div>'\
+          print(new)\
+          文本=string.gsub(content,'<div id=\"影音埋点\"></div>',new,1)\
+          --先导入包\
+          import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+          print(l6)\
+\
+        end)\
+      end\
+    end\
+end})\
+.setNegativeButton(l28,nil)\
+\
+.show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+              ["icon"]	= "drawable/1622363093185_edit_236159662368129.png" ;
+              ["name"]	= "添加应用至市场\
+Add App to Store" ;
+              } ;
+          [3]	= {
+              ["onClick"]	= "\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+    l1=\"悦心应用市场超文本标记语言源代码生成\"\
+    l2=\"应用云储文档唯一标识\"\
+    l3=\"更改版本\"\
+    l4=\"更新时间\"\
+    l5=\"请设置\"\
+    l6=\"复制成功\"\
+    l7=\"自定义圆角遮罩\"\
+    l8=\"更新链接\"\
+    l9=\"更新特性\"\
+    l10=\"文本大小\"\
+    l11=\"轻触设置文本大小\"\
+    l12=\"文本颜色\"\
+    l13=\"轻触设置文本颜色\"\
+    l14=\"默认字体样式\"\
+    l15=\"由系统服务商提供\"\
+    l16=\"Copy\"\
+    l17=\"轻触设置字体样式\"\
+\
+    l18=\"设置图标大小\"\
+    l19=\"默认大小为90dp\"\
+    l20=\"您无需键入数值单位，默认单位是dp\"\
+\
+    l21=\"设置圆角遮罩\"\
+    l22=\"推荐90-100px\"\
+    l23=\"您无需键入数值单位，默认单位是px\"\
+\
+    l24=\"设置文本大小\"\
+    l25=\"默认大小为23dp\"\
+\
+    l26=\"设置文本颜色\"\
+\
+    l27=\"好的\"\
+    l28=\"取消\"\
+\
+    l29=\"应用配置已更改，重新进入应用以更新配置\"\
+    l30=\"现在\"\
+    l31=\"稍后\"\
+    l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+   else\
+    l1=\"YueStore HTML Generation\"\
+    l2=\"APP ID\"\
+    l3=\"Href\"\
+    l4=\"Image Url\"\
+    l5=\"Please Set\"\
+    l6=\"The no rounded corners icon\"\
+    l7=\"Custom Rounded Corners\"\
+    l8=\"Tap to set rounded corners\"\
+    l9=\"Text parameter configuration\"\
+    l10=\"Text Size\"\
+    l11=\"Tap to set text size\"\
+    l12=\"Text Color\"\
+    l13=\"Tap to set text color\"\
+    l14=\"Default Font\"\
+    l15=\"The font provided by the system manufacturer\"\
+    l16=\"Custom Font\"\
+    l17=\"Tap to set font\"\
+\
+    l18 =\"Set icon size\"\
+    l19 =\"Default size is 90DP\"\
+    l20 =\"You do not need to type numeric units, the default is DP\"\
+    l21 =\"Set corner mask\"\
+    l22 =\"Recommended 90-100px\"\
+    l23 =\"You do not need to type numeric units, the default is PX\"\
+    l24 =\"Set text size\"\
+    l25 =\"Default size 23DP\"\
+    l26 =\"Set text color\"\
+    l27 =\"OK\"\
+    l28 =\"Cancel\"\
+\
+    l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+    l30=\"NOW\"\
+    l31=\"LATER\"\
+    l32=\"When do you want to update the configuration？\"\
+  end\
+\
+\
+\
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    };\
+    {\
+      EditText;\
+      hint=l2;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      InputType=\"number\";--设置只可输入数字和点\
+      id=\"edit4\";\
+    };\
+    {\
+      EditText;\
+      hint=l3;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit5\";\
+    };\
+    {\
+      EditText;\
+      hint=l4;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit6\";\
+    };\
+    {\
+      EditText;\
+      hint=l8;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit7\";\
+    };\
+    {\
+      EditText;\
+      hint=l9;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit8\";\
+    };\
+\
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(l27,{onClick=\
+\
+    function(v)\
+      --[[  原1=edit7.Text\
+    原2=string.gsub(原1,\"%%\",\"%%\"..\"%%\")\
+   --   原3=string.gsub(原2,\"/\",\"%%\"..\"%/\")\
+  --原4=string.gsub(原2,\"%*\",\"%%\"..\"%*\")\
+ -- 原5=string.gsub(原2,\"%.\",\"%%\"..\"%.\")\
+    print(原2)\
+   ]]\
+\
+      url=\"https://wds.ecsxs.com/\"..edit4.Text..\".html\"\
+      Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+        --  print(content)\
+        if edit5.Text ==\"\"then print(l5)\
+          else\
+        原版本= '<font class=\"app_version\">'..string.match(content,'<font class=\"app_version\">(.-)</font>')..'</font>'\
+        新版本= '<font class=\"app_version\">'..edit5.Text..'</font>'\
+\
+        文本1=string.gsub(content,原版本,新版本,1)\
+        \
+      if edit6.Text==\"\" then print(l5) else\
+        \
+        原更新时间= '<font class=\"update_time\">'..string.match(content,'<font class=\"update_time\">(.-)</font>')..'</font>'\
+        新更新时间= '<font class=\"update_time\">'..edit6.Text..'</font>'\
+        文本2=string.gsub(文本1,原更新时间,新更新时间,1)\
+       \
+      if edit7.Text ==\"\" then print(l5) else\
+        \
+        文本3=string.gsub(edit7.Text,\"%%\",\"%%\"..\"%%\")\
+        原1=string.match(content,'id=\"更新链接\"(.-)id=\"更新链接\"')\
+        --  原2=string.gsub(原1,\"%%\",\"%%\"..\"%%\")\
+\
+        原更新链接= 'id=\"更新链接\"'..原1..'id=\"更新链接\"'\
+        --  print(原更新链接)\
+        新更新链接= 'id=\"更新链接\"href='..'\"'..文本3..'\"'..'id=\"更新链接\"'\
+        -- print(新更新链接)\
+        文本4=string.gsub(文本2,原更新链接,新更新链接,1)\
+        \
+      if edit8.Text==\"\" then print(l5) else \
+        原更新特性= 'update_log\">'..string.match(content,'update_log\">(.-)</div>')..'</div>'\
+        新更新特性= 'update_log\">'..edit8.Text..'</div>'\
+        -- print(文本2)\
+        -- print(文本4)\
+        文本5=string.gsub(文本4,原更新特性,新更新特性,1)\
+        \
+       -- print(文本5)\
+        import \"android.content.*\"\
+        activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本5)\
+        print(l6)\
+        end\
+      end\
+    end\
+  end\
+      end)\
+\
+\
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+              ["icon"]	= "drawable/1622362932663.png" ;
+              ["name"]	= "更新应用\
+Update App" ;
+              } ;
+          } ;
+      ["启用"]	= true ;
+      ["启用顶部图片"]	= true ;
+      } ;
+  ["toolbar"]	= {
+      ["启用搜索功能"]	= false ;
+      ["搜索URL"]	= "" ;
+      ["icon_btns"]	= {
+          [4]	= {
+              ["onClick"]	= "退出页面()" ;
+              ["icon"]	= "1618133642340_edit_9089970217883(1)" ;
+              } ;
+          [1]	= {
+              ["onClick"]	= "\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+    l1=\"悦心应用市场超文本标记语言源代码生成\"\
+    l2=\"应用名\"\
+    l3=\"版本号\"\
+    l4=\"更新时间\"\
+    l5=\"请设置\"\
+    l6=\"复制成功\"\
+    l7=\"\"\
+    l8=\"下载链接\"\
+    l9=\"更新特性\"\
+    l10=\"介绍图1\"\
+    l11=\"介绍图2\"\
+    l12=\"介绍图3\"\
+    l13=\"介绍图4\"\
+    l14=\"介绍图5\"\
+    l15=\"介绍图6\"\
+    l16=\"应用介绍\"\
+    l17=\"详细介绍\"\
+\
+    l18=\"包名\"\
+    l19=\"大小\"\
+    l20=\"联系方式\"\
+\
+    l21=\"开发者\"\
+    l22=\"推荐90-100px\"\
+    l23=\"您无需键入数值单位，默认单位是px\"\
+\
+    l24=\"设置文本大小\"\
+    l25=\"默认大小为23dp\"\
+\
+    l26=\"设置文本颜色\"\
+\
+    l27=\"好的\"\
+    l28=\"取消\"\
+\
+    l29=\"应用配置已更改，重新进入应用以更新配置\"\
+    l30=\"现在\"\
+    l31=\"稍后\"\
+    l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+   else\
+    l1=\"YueStore HTML Generation\"\
+    l2=\"APP ID\"\
+    l3=\"Href\"\
+    l4=\"Image Url\"\
+    l5=\"Please Set\"\
+    l6=\"The no rounded corners icon\"\
+    l7=\"Custom Rounded Corners\"\
+    l8=\"Tap to set rounded corners\"\
+    l9=\"Text parameter configuration\"\
+    l10=\"Text Size\"\
+    l11=\"Tap to set text size\"\
+    l12=\"Text Color\"\
+    l13=\"Tap to set text color\"\
+    l14=\"Default Font\"\
+    l15=\"The font provided by the system manufacturer\"\
+    l16=\"Custom Font\"\
+    l17=\"Tap to set font\"\
+\
+    l18 =\"Set icon size\"\
+    l19 =\"Default size is 90DP\"\
+    l20 =\"You do not need to type numeric units, the default is DP\"\
+    l21 =\"Set corner mask\"\
+    l22 =\"Recommended 90-100px\"\
+    l23 =\"You do not need to type numeric units, the default is PX\"\
+    l24 =\"Set text size\"\
+    l25 =\"Default size 23DP\"\
+    l26 =\"Set text color\"\
+    l27 =\"OK\"\
+    l28 =\"Cancel\"\
+\
+    l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+    l30=\"NOW\"\
+    l31=\"LATER\"\
+    l32=\"When do you want to update the configuration？\"\
+  end\
+\
+\
+\
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    layout_width='fill';--布局宽度\13\
+  layout_height='fill';--布局高度\13\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    };\
+   {\
+      EditText;\
+      hint=\"应用名称\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit1\";\
+    };\
+    {\
+      EditText;\
+      hint=\"应用包名\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit2\";\
+    };\
+    {\
+      EditText;\
+      hint=\"应用版本\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit3\";\
+    };\
+    {\
+      EditText;\
+      hint=\"更新时间\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+      id=\"edit4\";\
+    };\
+    {\
+      EditText;\
+      hint=\"开发者\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit5\";\
+    };\
+    {\
+      EditText;\
+      hint=\"联系方式\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit6\";\
+    };\
+    {\
+      EditText;\
+      hint=\"大小\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit7\";\
+    };\
+    {\
+      EditText;\
+      hint=\"下载链接\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit8\";\
+    };\
+ {\
+      EditText;\
+      hint=\"应用介绍\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+      id=\"edit9\";\
+    };\
+  \
+ {\
+      EditText;\
+      hint=\"版本特性\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+      id=\"edit20\";\
+    };\
+   \
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(\"第二页\",{onClick=\
+\
+    function(v)\
+    \
+     \
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    layout_width='fill';--布局宽度\13\
+  layout_height='fill';--布局高度\13\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    }; {\
+      EditText;\
+      hint=\"应用类别\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit10\";\
+    };\
+    {\
+      EditText;\
+      hint=\"系统\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit11\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图1\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit12\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图2\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit13\";\
+    };\
+  {\
+      EditText;\
+      hint=\"介绍图3\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit14\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图4\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit15\";\
+    };\
+  {\
+      EditText;\
+      hint=\"介绍图5\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit16\";\
+    };\
+    {\
+      EditText;\
+      hint=\"介绍图6\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit17\";\
+    };\
+  {\
+      EditText;\
+      hint=\"应用图标\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit18\";\
+    };\
+   {\
+      EditText;\
+      hint=\"适用于YUE的应用标识\";\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      InputType=\"number\";\
+      layout_gravity=\"center\",\
+      id=\"edit19\";\
+    };\
+\
+   \
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(\"完成\",{onClick=\
+\
+    function(v)\
+    \
+     文本=[[\
+<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">\
+<html><head>\
+   <meta charset=\"utf-8\">\
+   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no\">\
+   <meta name=\"referrer\" content=\"never\">\
+   <meta http-equiv=\"Cache-Control\" content=\"no-siteapp,must-revalidate\">\
+   <meta name=\"sharename\" itemprop=\"name\" content=\"软件名称\">\
+   <meta name=\"keywords\" itemprop=\"keywords\" content=\"   软件简介\">\
+   <meta name=\"shareimage\" itemprop=\"image\" content=\"https://home.yuesq.cf/favicon.png\">\
+   <meta name=\"description\" itemprop=\"description\" content=\"   简介\">\
+   <meta name=\"yunchu-template\" content=\"2\">  <meta name=\"is-edit\" content=\"0\">\
+   <meta name=\"author\" content=\"©0047ol\">\
+   <meta name=\"copyright\" content=\"©YUE\">\
+   <title>]]..edit1.Text..[[</title>\
+   <link type=\"image/png\" rel=\"shortcut icon\" href=\"]]..edit18.Text..[[\">\
+   <link type=\"text/css\" rel=\"stylesheet\" href=\"//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css\">\
+  </head><body class=\"mdui-theme-primary-blue mdui-theme-accent-blue mdui-color-grey-50 mdui-theme-layout-auto main-layout mdui-loaded\">\
+   <div class=\"mdui-valign mdui-color-white mdui-p-t-2 mdui-p-x-2\">\
+    <a class=\"mdui-btn mdui-btn-icon mdui-text-color-theme-icon mdui-hidden\"><i class=\"mdui-icon material-icons\">share</i></a>\
+    <div class=\"mdui-toolbar-spacer\"></div>\
+ \
+    </div>\
+   <div class=\"mdui-valign mdui-color-white mdui-p-b-4\">\
+    <div class=\"mdui-center\">\
+     <img class=\"mdui-center mdui-shadow-1 app_icon\" src=\"https://img14.360buyimg.com/ddimg/jfs/t1/136133/33/22389/8178/6166f764Ec92db56d/d7c7d48a09f2eb8b.png\" width=\"70px\" height=\"70px\" style=\"border-radius: 5px;\">\
+     <p class=\"mdui-text-center mdui-typo-title doc_tle\">]]..edit1.Text..[[</p>\
+     <p class=\"mdui-text-center mdui-typo-subheading-opacity\">ID『]]..edit19.Text..[[』   | 中文 | <span id=\"/211552.html\" class=\"waline-visitor-count\"></span>+次浏览|  ]]..edit10.Text..[[</p><div class=\"mdui-valign\">\
+   \
+    <a class=\"mdui-btn mdui-center mdui-color-theme-accent down_url\" id=\"更新链接\" href=\"]]..edit8.Text..[[\" id=\"更新链接\" target=\"_blank\"><i class=\"mdui-icon mdui-icon-left material-icons\">android</i> 获取应用 <font class=\"app_ver\"> </font></a>\9</div>\
+   </div>\
+   </div>\
+   <div class=\"mdui-m-t-1 mdui-p-t-2 mdui-p-x-2 mdui-color-white\">\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>版本特性\
+  \
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2 update_log\">]]..edit20.Text..[[</div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>应用截图\
+   </div>\
+    <div class=\"mdui-p-a-2\">\
+<style>\
+.appshot{\
+overflow: auto; \
+white-space:nowrap;\
+}\
+</style>\
+<div class=\"appshot\">\
+<a href=\"]]..edit12.Text..[[\"><img src=\"]]..edit12.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit13.Text..[[\"><img src=\"]]..edit13.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit14.Text..[[\"><img src=\"]]..edit14.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit15.Text..[[\"><img src=\"]]..edit15.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit16.Text..[[\"><img src=\"]]..edit16.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit17.Text..[[\"><img src=\"]]..edit17.Text..[[\" width:auto height=\"25%\"></a>\
+</div>\
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>应用介绍\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2 app_desc\">]]..edit9.Text..[[</div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>详细信息\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>应用包名：<font class=\"package_name\">]]..edit2.Text..[[</font></div>\
+     <div>应用版本：<font class=\"app_version\">]]..edit3.Text..[[</font></div>\
+     <div>大小：]]..edit7.Text..[[</div>\
+     <div>更新时间：<font class=\"update_time\">]]..edit4.Text..[[</font></div>\
+     <div>开发者：<font class=\"author\">]]..edit5.Text..[[</font></div>\
+     <div>系统支持：未知</div>\
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>所需权限\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>\
+完全的网络访问权限<br>查看网络连接<br>读取存储卡中的内容<br>修改或删除 SD 卡中的内容<br>访问下载管理器。<br>防止手机休眠<br>高级下载管理器功能。<br>从您的媒体收藏中读取位置信息</div>\
+   \
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>联系方式\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>]]..edit6.Text..[[</div>\
+   \
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>评论区\
+    </div>\
+<!-- 使用短链接获取最新的默认文件 --> <script src=\"//cdn.jsdelivr.net/npm/@waline/client\"></script> <!-- 省略版本号以自动应用最新版本 --> <script src=\"//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js\"></script> <!-- 或者手动指定最新版本 --> <script src=\"//cdn.jsdelivr.net/@waline/clien@latest/dist/Waline.min.js\"></script>\
+\
+  <div id=\"waline\"></div>\
+  <script>\
+    Waline({\
+      \
+      el: '#waline',\
+      serverURL: 'https://yue.vercel.app',\
+      visitor: true, // 阅读量统计\
+    \
+    // 设置 emoji 为QQ与哔哩哔哩\
+  emoji: [\
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',\
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',\
+  ],\
+});\
+  </script>\
+   </div>\
+   <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js\"></script>\
+   <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/gh/0047ol/yunchu@master/assets/js/clipboard.min.js\"></script>\
+   <script>\
+//\
+document.getElementsByClassName(\"vpower\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementsByTagName(\"svg\")[0].setAttribute(\"style\",\"display:none\");\
+   </script>\
+   </body>\
+   </html>]] \
+     import \"android.content.*\"\
+        activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+      \
+     print(l6)\
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+     \
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+              ["icon"]	= "1638971170570" ;
+              } ;
+          [2]	= {
+              ["onClick"]	= "\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+l1=\"悦心应用市场超文本标记语言源代码生成\"\
+l2=\"应用唯一身份标识\"\
+l3=\"超链接目标地址\"\
+l4=\"图像链接\"\
+l5=\"请设置\"\
+l6=\"复制成功\"\
+l7=\"自定义圆角遮罩\"\
+l8=\"统一图标圆角样式\"\
+l9=\"文本参数配置\"\
+l10=\"文本大小\"\
+l11=\"轻触设置文本大小\"\
+l12=\"文本颜色\"\
+l13=\"轻触设置文本颜色\"\
+l14=\"默认字体样式\"\
+l15=\"由系统服务商提供\"\
+l16=\"Copy\"\
+l17=\"轻触设置字体样式\"\
+\
+l18=\"设置图标大小\"\
+l19=\"默认大小为90dp\"\
+l20=\"您无需键入数值单位，默认单位是dp\"\
+\
+l21=\"设置圆角遮罩\"\
+l22=\"推荐90-100px\"\
+l23=\"您无需键入数值单位，默认单位是px\"\
+\
+l24=\"设置文本大小\"\
+l25=\"默认大小为23dp\"\
+\
+l26=\"设置文本颜色\"\
+\
+l27=\"好的\"\
+l28=\"取消\"\
+\
+l29=\"应用配置已更改，重新进入应用以更新配置\"\
+ l30=\"现在\"\
+ l31=\"稍后\"\
+ l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+else\
+l1=\"YueStore HTML Generation\"\
+l2=\"APP ID\"\
+l3=\"Href\"\
+l4=\"Image Url\"\
+l5=\"Please Set\"\
+l6=\"The no rounded corners icon\"\
+l7=\"Custom Rounded Corners\"\
+l8=\"Tap to set rounded corners\"\
+l9=\"Text parameter configuration\"\
+l10=\"Text Size\"\
+l11=\"Tap to set text size\"\
+l12=\"Text Color\"\
+l13=\"Tap to set text color\"\
+l14=\"Default Font\"\
+l15=\"The font provided by the system manufacturer\"\
+l16=\"Custom Font\"\
+l17=\"Tap to set font\"\
+\
+l18 =\"Set icon size\"\
+l19 =\"Default size is 90DP\"\
+l20 =\"You do not need to type numeric units, the default is DP\"\
+l21 =\"Set corner mask\"\
+l22 =\"Recommended 90-100px\"\
+l23 =\"You do not need to type numeric units, the default is PX\"\
+l24 =\"Set text size\"\
+l25 =\"Default size 23DP\"\
+l26 =\"Set text color\"\
+l27 =\"OK\"\
+l28 =\"Cancel\"\
+\
+l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+ l30=\"NOW\"\
+ l31=\"LATER\"\
+ l32=\"When do you want to update the configuration？\"\
+end\
+\
+\
+\
+InputLayout={\
+  LinearLayout;\
+  orientation=\"vertical\";\
+  Focusable=true,\
+  FocusableInTouchMode=true,\
+  {\
+    TextView;\
+\
+    textSize=\"15sp\",\
+    layout_marginTop=\"10dp\";\
+    layout_marginLeft=\"3dp\",\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    text=\"\";\
+\
+  };\
+  {\
+    EditText;\
+    hint=l2;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    InputType=\"numberDecimal\";--设置只可输入数字和点\
+    id=\"edit4\";\
+  };\
+  {\
+    EditText;\
+    hint=l3;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"edit5\";\
+  };\
+  {\
+    EditText;\
+    hint=l4;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"edit6\";\
+  };\
+\
+};\
+AlertDialog.Builder(this)\
+.setTitle(l1)\
+.setView(loadlayout(InputLayout))\
+.setPositiveButton(l27,{onClick=\
+\
+  function(v)\
+    if tostring(edit4.Text) < tostring(2)then\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"20%%\"/></a> <div id=\"工具类埋点\"></div>'\
+\
+          文本=string.gsub(content,'<div id=\"工具类埋点\"></div>',new,1)\
+import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+ print(l6)\
+        end)\
+      end\
+     elseif tostring(edit4.Text) < tostring(3) then\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"20%%\"/></a> <div id=\"生活学习埋点\"></div>'\
+          --  print(new)\
+\
+          文本=string.gsub(content,'<div id=\"生活学习埋点\"></div>',new,1)\
+          --先导入包\
+          import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+          print(l6)\
+\
+        end)\
+      end\
+     else\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"20%%\"/></a> <div id=\"影音埋点\"></div>'\
+          print(new)\
+          文本=string.gsub(content,'<div id=\"影音埋点\"></div>',new,1)\
+          --先导入包\
+          import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+          print(l6)\
+\
+        end)\
+      end\
+    end\
+end})\
+.setNegativeButton(l28,nil)\
+\
+.show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+              ["icon"]	= "1622363093185_edit_236159662368129" ;
+              } ;
+          [3]	= {
+              ["onClick"]	= "\
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+    l1=\"悦心应用市场超文本标记语言源代码生成\"\
+    l2=\"应用云储文档唯一标识\"\
+    l3=\"更改版本\"\
+    l4=\"更新时间\"\
+    l5=\"请设置\"\
+    l6=\"复制成功\"\
+    l7=\"自定义圆角遮罩\"\
+    l8=\"更新链接\"\
+    l9=\"更新特性\"\
+    l10=\"文本大小\"\
+    l11=\"轻触设置文本大小\"\
+    l12=\"文本颜色\"\
+    l13=\"轻触设置文本颜色\"\
+    l14=\"默认字体样式\"\
+    l15=\"由系统服务商提供\"\
+    l16=\"Copy\"\
+    l17=\"轻触设置字体样式\"\
+\
+    l18=\"设置图标大小\"\
+    l19=\"默认大小为90dp\"\
+    l20=\"您无需键入数值单位，默认单位是dp\"\
+\
+    l21=\"设置圆角遮罩\"\
+    l22=\"推荐90-100px\"\
+    l23=\"您无需键入数值单位，默认单位是px\"\
+\
+    l24=\"设置文本大小\"\
+    l25=\"默认大小为23dp\"\
+\
+    l26=\"设置文本颜色\"\
+\
+    l27=\"好的\"\
+    l28=\"取消\"\
+\
+    l29=\"应用配置已更改，重新进入应用以更新配置\"\
+    l30=\"现在\"\
+    l31=\"稍后\"\
+    l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+   else\
+    l1=\"YueStore HTML Generation\"\
+    l2=\"APP ID\"\
+    l3=\"Href\"\
+    l4=\"Image Url\"\
+    l5=\"Please Set\"\
+    l6=\"The no rounded corners icon\"\
+    l7=\"Custom Rounded Corners\"\
+    l8=\"Tap to set rounded corners\"\
+    l9=\"Text parameter configuration\"\
+    l10=\"Text Size\"\
+    l11=\"Tap to set text size\"\
+    l12=\"Text Color\"\
+    l13=\"Tap to set text color\"\
+    l14=\"Default Font\"\
+    l15=\"The font provided by the system manufacturer\"\
+    l16=\"Custom Font\"\
+    l17=\"Tap to set font\"\
+\
+    l18 =\"Set icon size\"\
+    l19 =\"Default size is 90DP\"\
+    l20 =\"You do not need to type numeric units, the default is DP\"\
+    l21 =\"Set corner mask\"\
+    l22 =\"Recommended 90-100px\"\
+    l23 =\"You do not need to type numeric units, the default is PX\"\
+    l24 =\"Set text size\"\
+    l25 =\"Default size 23DP\"\
+    l26 =\"Set text color\"\
+    l27 =\"OK\"\
+    l28 =\"Cancel\"\
+\
+    l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+    l30=\"NOW\"\
+    l31=\"LATER\"\
+    l32=\"When do you want to update the configuration？\"\
+  end\
+\
+\
+\
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    };\
+    {\
+      EditText;\
+      hint=l2;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      InputType=\"number\";--设置只可输入数字和点\
+      id=\"edit4\";\
+    };\
+    {\
+      EditText;\
+      hint=l3;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit5\";\
+    };\
+    {\
+      EditText;\
+      hint=l4;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit6\";\
+    };\
+    {\
+      EditText;\
+      hint=l8;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit7\";\
+    };\
+    {\
+      EditText;\
+      hint=l9;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit8\";\
+    };\
+\
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(l27,{onClick=\
+\
+    function(v)\
+      --[[  原1=edit7.Text\
+    原2=string.gsub(原1,\"%%\",\"%%\"..\"%%\")\
+   --   原3=string.gsub(原2,\"/\",\"%%\"..\"%/\")\
+  --原4=string.gsub(原2,\"%*\",\"%%\"..\"%*\")\
+ -- 原5=string.gsub(原2,\"%.\",\"%%\"..\"%.\")\
+    print(原2)\
+   ]]\
+\
+      url=\"https://wds.ecsxs.com/\"..edit4.Text..\".html\"\
+      Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+        --  print(content)\
+        if edit5.Text ==\"\"then print(l5)\
+          else\
+        原版本= '<font class=\"app_version\">'..string.match(content,'<font class=\"app_version\">(.-)</font>')..'</font>'\
+        新版本= '<font class=\"app_version\">'..edit5.Text..'</font>'\
+\
+        文本1=string.gsub(content,原版本,新版本,1)\
+        \
+      if edit6.Text==\"\" then print(l5) else\
+        \
+        原更新时间= '<font class=\"update_time\">'..string.match(content,'<font class=\"update_time\">(.-)</font>')..'</font>'\
+        新更新时间= '<font class=\"update_time\">'..edit6.Text..'</font>'\
+        文本2=string.gsub(文本1,原更新时间,新更新时间,1)\
+       \
+      if edit7.Text ==\"\" then print(l5) else\
+        \
+        文本3=string.gsub(edit7.Text,\"%%\",\"%%\"..\"%%\")\
+        原1=string.match(content,'id=\"更新链接\"(.-)id=\"更新链接\"')\
+        --  原2=string.gsub(原1,\"%%\",\"%%\"..\"%%\")\
+\
+        原更新链接= 'id=\"更新链接\"'..原1..'id=\"更新链接\"'\
+        --  print(原更新链接)\
+        新更新链接= 'id=\"更新链接\"href='..'\"'..文本3..'\"'..'id=\"更新链接\"'\
+        -- print(新更新链接)\
+        文本4=string.gsub(文本2,原更新链接,新更新链接,1)\
+        \
+      if edit8.Text==\"\" then print(l5) else \
+        原更新特性= 'update_log\">'..string.match(content,'update_log\">(.-)</div>')..'</div>'\
+        新更新特性= 'update_log\">'..edit8.Text..'</div>'\
+        -- print(文本2)\
+        -- print(文本4)\
+        文本5=string.gsub(文本4,原更新特性,新更新特性,1)\
+        \
+       -- print(文本5)\
+        import \"android.content.*\"\
+        activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本5)\
+        print(l6)\
+        end\
+      end\
+    end\
+  end\
+      end)\
+\
+\
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+" ;
+              ["icon"]	= "1622362932663" ;
+              } ;
+          } ;
+      ["输入栏模式"]	= true ;
+      ["menus"]	= {
+          } ;
+      ["搜索框提示"]	= "" ;
+      } ;
+  ["fltBtn"]	= {
+      ["显示"]	= false ;
+      ["图标"]	= "" ;
+      ["点击事件"]	= "--悬浮按钮点击时执行的事件" ;
+      } ;
+  ["view_attribute"]	= {
+      ["侧滑栏宽度"]	= "300dp" ;
+      ["顶栏阴影强度"]	= "2dp" ;
+      ["顶栏高度"]	= "60dp" ;
+      ["搜索栏圆角弧度"]	= "2dp" ;
+      ["搜索栏阴影强度"]	= "2dp" ;
+      ["顶栏标题"]	= "HTML" ;
+      } ;
+  ["web_control"]	= {
+      } ;
+  ["colors"]	= {
+      ["顶栏部件触摸"]	= "#22ffffff" ;
+      ["侧滑栏背景"]	= "#ffffffff" ;
+      ["搜索栏部件触摸"]	= "#44000000" ;
+      ["悬浮按钮图标"]	= "#ffffffff" ;
+      ["顶栏"]	= "#ffffffff" ;
+      ["悬浮按钮"]	= "#ff33a7aa" ;
+      ["顶栏部件"]	= "#ff000000" ;
+      ["导航栏"]	= "#ff2c2e43" ;
+      ["进度条"]	= "#00000000" ;
+      ["侧滑栏列表文字"]	= "#ff333333" ;
+      ["侧滑栏列表图标"]	= "#ff757575" ;
+      ["搜索栏提示文字"]	= "#80000000" ;
+      ["搜索栏部件"]	= "#ff888888" ;
+      ["搜索栏背景"]	= "#ffffffff" ;
+      } ;
+  ["web"]	= {
+      ["支持打开外部应用"]	= true ;
+      ["网页沉浸"]	= true ;
+      ["启用进度条"]	= false ;
+      ["浏览器用户标识"]	= "默认" ;
+      ["启用长按菜单"]	= true ;
+      ["启动网页"]	= "" ;
+      } ;
+  ["switch"]	= {
+      ["横屏"]	= false ;
+      ["支持滑动页面"]	= false ;
+      ["显示状态栏"]	= true ;
+      ["启用启动图"]	= false ;
+      } ;
+  ["events"]	= {
+      ["网页加载完毕"]	= "--网页加载完毕后执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["程序启动"]	= "\
+\
+\
+\
+require\"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+\
+require \"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+import \"android.content.Context\"\
+import \"android.content.Intent\"\
+import \"android.app.PendingIntent\"\
+import \"android.app.Notification\"\
+import \"android.content.Intent\"\
+import \"android.net.Uri\"\
+import \"android.provider.Settings\"\
+local height=activity.getResources().getDimensionPixelSize(activity.getResources().getIdentifier(\"status_bar_height\",\"dimen\",\"android\"));\
+\
+\
+\
+布局=\
+--主框架\
+\
+{\
+  LinearLayout;--线性布局\
+  layout_width='match_parent';--布局宽度\
+  layout_height='match_parent';--布局高度\
+  background='#FFFFFFFF';--布局背景颜色(或者图片路径)\
+  id='ars';\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='wrap',--高度\
+    background='#f1f3f5',--背景颜色或图片路径\
+    {\
+      CardView;--卡片控件\
+      layout_margin='8dp';--边距\
+      layout_gravity='center';--重力\
+      --左:left 右:right 中:center 顶:top 底:bottom\
+      elevation='0dp';--阴影\
+      layout_width='fill';--宽度\
+      layout_height=height;--高度\
+      CardBackgroundColor='#f1f3f5';--颜色\
+      radius='';--圆角\
+    };\
+    {\
+      CardView;--卡片控件\
+      layout_margin='15dp';--边距\
+      layout_gravity='center|top';--重力\
+      --左:left 右:right 中:center 顶:top 底:bottom\
+      elevation='0dp';--阴影\
+      layout_width='fill';--宽度\
+      layout_height='5%h';--高度\
+      CardBackgroundColor='#f1f3f5';--颜色;\
+      radius='8dp';--圆角\
+      {\
+        TextView;--文本控件\
+        layout_width='fill';--文本宽度\
+        layout_height='fill';--文本高度\
+        gravity='left|center';--重力属性\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        textColor='#000000';--文字颜色\
+        text='超文本标记语言源代码生成';--显示的文字\
+        textSize='20dp';--文字大小\
+      };\
+      {\
+        ImageView;--图片控件\
+        src='gb.png';--图片路径\
+        layout_width='35dp';--图片宽度\
+        layout_height='35dp';--图片高度\
+        scaleType='fitXY';--图片显示类型\
+        layout_gravity='center|right';--卡片重力\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        id='关闭';\
+\
+      };\
+\
+\
+    };\
+\
+\
+    --纵向滚动框架\
+    {\
+      ScrollView,\
+      layout_width=\"match_parent\";\
+      layout_height=\"match_parent\";\
+      VerticalScrollBarEnabled=false;\
+\
+      {\
+        LinearLayout;--线性布局\
+        Orientation='horizontal';--布局方向\
+        layout_width='match_parent';--布局宽度\
+        layout_height='match_parent';--布局高度\
+        background='#f1f3f5';--布局背景颜色\
+        id='ars';\
+\
+\
+        -- -----------左边竖布局开始--------------\
+        --左线程框架\
+\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"fill\";\
+          layout_height=\"match_parent\";\
+          layout_marginLeft=\"\";\
+\
+\
+\
+          {\
+            TextView;--文本控件\
+            layout_width='fill';--文本宽度\
+            layout_height='3.5%h';--文本高度\
+            gravity='center|left';--重力属性\
+            textColor='#FF8C8C8C';--文字颜色\
+            text=\"功能\";--显示的文字\
+            textSize='14dp';--文字大小\
+            layout_margin='';--边距\
+            layout_marginLeft='17dp';--左距\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_marginLeft='13dp';--左距\
+            layout_marginRight='13dp';--右距\
+            layout_marginTop='';--顶距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='24%h';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='17dp';--圆角\
+            {\
+              CardView;--卡片控件\
+              layout_margin='';--边距\
+              layout_gravity='';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='8%h';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='';--圆角\
+              id='b1';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='top|left';--重力属性\
+                textColor=\"#ff000000\";--文字颜色\
+                text=\"新建应用生成源码\";--显示的文字\
+                textSize='17dp';--文字大小\
+                layout_margin='8dp';--边距\
+                id='b1';\
+              };\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='left|center';--重力属性\
+                textColor='#FF8C8C8C';--文字颜色\
+                text=\"Add New App\";--显示的文字\
+                textSize='11dp';--文字大小\
+                layout_marginLeft='8dp';--左距\
+                layout_marginTop='3.7%h';--顶距\
+                id='b1';\
+\
+              };\
+\
+\
+              {\
+                CardView;--卡片控件\
+                layout_margin='8dp';--边距\
+                layout_gravity='center|right';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='22dp';--宽度\
+                layout_height='22dp';--高度\
+                CardBackgroundColor='0';--颜色\
+                radius='';--圆角\
+                id='b1';\
+                {\
+                  ImageView;--图片控件\
+                  src='http://wp.wadg.pro/view.php/332b0971bbe6511ea8cab46f44584e6e.png';--图片路径\
+                  layout_width='fill';--图片宽度\
+                  layout_height='fill';--图片高度\
+                  scaleType='fitXY';--图片显示类型\
+                  id='b1';\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_margin='';--边距\
+                layout_gravity='center|bottom';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='fill';--宽度\
+                layout_height='1dp';--高度\
+                CardBackgroundColor='#f1f3f5';--颜色\
+                radius='';--圆角\
+                layout_marginLeft='8dp';--左距\
+                layout_marginRight='8dp';--右距\
+              };\
+\
+            };\
+            ------------\
+            {\
+              CardView;--卡片控件\
+              layout_margin='';--边距\
+              layout_gravity='';--重力\
+              layout_marginTop='8%h';--顶距\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_width='fill';--宽度\
+              layout_height='8%h';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='';--圆角\
+              id='b2';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='top|left';--重力属性\
+                textColor=\"#ff000000\";--文字颜色\
+                text=\"添加应用至市场\";--显示的文字\
+                textSize='17dp';--文字大小\
+                layout_margin='8dp';--边距\
+                id='b2';\
+              };\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='left|center';--重力属性\
+                textColor='#FF8C8C8C';--文字颜色\
+                text=\"Add App to Store\";--显示的文字\
+                textSize='11dp';--文字大小\
+                layout_marginLeft='8dp';--左距\
+                layout_marginTop='3.7%h';--顶距\
+                id='b2';\
+\
+              };\
+\
+\
+              {\
+                CardView;--卡片控件\
+                layout_margin='8dp';--边距\
+                layout_gravity='center|right';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='22dp';--宽度\
+                layout_height='22dp';--高度\
+                CardBackgroundColor='0';--颜色\
+                radius='';--圆角\
+                id='b2';\
+                {\
+                  ImageView;--图片控件\
+                  src='http://wp.wadg.pro/view.php/332b0971bbe6511ea8cab46f44584e6e.png';--图片路径\
+                  layout_width='fill';--图片宽度\
+                  layout_height='fill';--图片高度\
+                  scaleType='fitXY';--图片显示类型\
+                  id='b2';\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_margin='';--边距\
+                layout_gravity='center|bottom';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='fill';--宽度\
+                layout_height='1dp';--高度\
+                CardBackgroundColor='#f1f3f5';--颜色\
+                radius='';--圆角\
+                layout_marginLeft='8dp';--左距\
+                layout_marginRight='8dp';--右距\
+              };\
+\
+            };\
+\
+            ----\
+\
+            {\
+              CardView;--卡片控件\
+              layout_margin='';--边距\
+              layout_gravity='';--重力\
+              --左:left 右:right 中:center 顶:top 底:bottom\
+              elevation='0dp';--阴影\
+              layout_marginTop='16%h';--顶距\
+              layout_width='fill';--宽度\
+              layout_height='8%h';--高度\
+              CardBackgroundColor='#ffffffff';--颜色\
+              radius='';--圆角\
+              id='b3';\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='top|left';--重力属性\
+                textColor=\"#ff000000\";--文字颜色\
+                text=\"更新应用\";--显示的文字\
+                textSize='17dp';--文字大小\
+                layout_margin='8dp';--边距\
+                id='b3';\
+              };\
+              {\
+                TextView;--文本控件\
+                layout_width='fill';--文本宽度\
+                layout_height='fill';--文本高度\
+                gravity='left|center';--重力属性\
+                textColor='#FF8C8C8C';--文字颜色\
+                text=\"Update App\";--显示的文字\
+                textSize='11dp';--文字大小\
+                layout_marginLeft='8dp';--左距\
+                layout_marginTop='3.7%h';--顶距\
+                id='b3';\
+\
+              };\
+\
+\
+              {\
+                CardView;--卡片控件\
+                layout_margin='8dp';--边距\
+                layout_gravity='center|right';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='22dp';--宽度\
+                layout_height='22dp';--高度\
+                CardBackgroundColor='0';--颜色\
+                radius='';--圆角\
+                id='b3';\
+                {\
+                  ImageView;--图片控件\
+                  src='http://wp.wadg.pro/view.php/332b0971bbe6511ea8cab46f44584e6e.png';--图片路径\
+                  layout_width='fill';--图片宽度\
+                  layout_height='fill';--图片高度\
+                  scaleType='fitXY';--图片显示类型\
+                  id='b3';\
+                };\
+              };\
+              {\
+                CardView;--卡片控件\
+                layout_margin='';--边距\
+                layout_gravity='center|bottom';--重力\
+                --左:left 右:right 中:center 顶:top 底:bottom\
+                elevation='0dp';--阴影\
+                layout_width='fill';--宽度\
+                layout_height='1dp';--高度\
+                CardBackgroundColor='#f1f3f5';--颜色\
+                radius='';--圆角\
+                layout_marginLeft='8dp';--左距\
+                layout_marginRight='8dp';--右距\
+              };\
+\
+            };\
+            ------------\
+          };\
+\
+          {\
+            TextView;--文本控件\
+            layout_width='fill';--文本宽度\
+            layout_height='3.5%h';--文本高度\
+            gravity='center|left';--重力属性\
+            textColor='#FF8C8C8C';--文字颜色\
+            text=\"预览\";--显示的文字\
+            textSize='14dp';--文字大小\
+            layout_margin='';--边距\
+            layout_marginLeft='17dp';--左距\
+          };\
+        {\
+CardView;--卡片控件\
+layout_margin='13dp';--边距\
+layout_gravity='center';--重力\
+--左:left 右:right 中:center 顶:top 底:bottom\
+elevation='0dp';--阴影\
+layout_width='fill';--宽度\
+layout_height='wrap';--高度\
+CardBackgroundColor='#ffffffff';--颜色\
+radius='8dp';--圆角\
+\
+{\
+  LuaWebView,--浏览器控件\
+  layout_width=\"fill\",--布局宽度\
+  layout_height=\"fill\",--布局高度\
+  id=\"llq\",--控件ID\
+},\
+};\
+          {\
+            CardView;--卡片控件\
+            layout_margin='';--边距\
+            layout_marginLeft='13dp';--左距\
+            layout_marginRight='13dp';--右距\
+            layout_marginTop='';--顶距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='fill';--宽度\
+            layout_height='wrap';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='17dp';--圆角\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              layout_margin='18dp';--边距\
+              gravity='center';--重力属性\
+              textColor='#ff000000';--文字颜色\
+              text='\\n\\n\\n\\n\\n暂未生成预览\\n\\n\\n\\n\\n';--显示的文字\
+              textSize='16dp';--文字大小\
+              id='预览';\
+            };\
+          };\
+        \
+{\
+CardView;--卡片控件\
+layout_margin='8dp';--边距\
+layout_gravity='center';--重力\
+--左:left 右:right 中:center 顶:top 底:bottom\
+elevation='0dp';--阴影\
+layout_width='fill';--宽度\
+layout_height='50%h';--高度\
+CardBackgroundColor='#F1F3F5';--颜色\
+radius='8dp';--圆角\
+};\
+\
+\
+        };\
+      };\
+    };\
+  };\
+};\
+\
+--activity.setContentView(loadlayout(布局))\
+\
+drawerLayout.getParent().addView(loadlayout(布局))\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+关闭.onClick=function()--点击事件\
+  ars.setVisibility(View.GONE)\
+end;\
+-----------------------------------\
+b1.onClick=function()--点击事件\
+      b1.setCardBackgroundColor(0xFFE7E8EA)\
+      task(80,function()\
+        b1.setCardBackgroundColor(0xffffffff)\
+      end)\
+    \
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+    l1=\"悦心应用市场超文本标记语言源代码生成\"\
+    l2=\"应用名\"\
+    l3=\"版本号\"\
+    l4=\"更新时间\"\
+    l5=\"请设置\"\
+    l6=\"复制成功\"\
+    l7=\"\"\
+    l8=\"下载链接\"\
+    l9=\"更新特性\"\
+    l10=\"介绍图1\"\
+    l11=\"介绍图2\"\
+    l12=\"介绍图3\"\
+    l13=\"介绍图4\"\
+    l14=\"介绍图5\"\
+    l15=\"介绍图6\"\
+    l16=\"应用介绍\"\
+    l17=\"详细介绍\"\
+\
+    l18=\"包名\"\
+    l19=\"大小\"\
+    l20=\"联系方式\"\
+\
+    l21=\"开发者\"\
+    l22=\"推荐90-100px\"\
+    l23=\"您无需键入数值单位，默认单位是px\"\
+\
+    l24=\"设置文本大小\"\
+    l25=\"默认大小为23dp\"\
+\
+    l26=\"设置文本颜色\"\
+\
+    l27=\"好的\"\
+    l28=\"取消\"\
+\
+    l29=\"应用配置已更改，重新进入应用以更新配置\"\
+    l30=\"现在\"\
+    l31=\"稍后\"\
+    l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+   else\
+    l1=\"YueStore HTML Generation\"\
+    l2=\"APP ID\"\
+    l3=\"Href\"\
+    l4=\"Image Url\"\
+    l5=\"Please Set\"\
+    l6=\"The no rounded corners icon\"\
+    l7=\"Custom Rounded Corners\"\
+    l8=\"Tap to set rounded corners\"\
+    l9=\"Text parameter configuration\"\
+    l10=\"Text Size\"\
+    l11=\"Tap to set text size\"\
+    l12=\"Text Color\"\
+    l13=\"Tap to set text color\"\
+    l14=\"Default Font\"\
+    l15=\"The font provided by the system manufacturer\"\
+    l16=\"Custom Font\"\
+    l17=\"Tap to set font\"\
+\
+    l18 =\"Set icon size\"\
+    l19 =\"Default size is 90DP\"\
+    l20 =\"You do not need to type numeric units, the default is DP\"\
+    l21 =\"Set corner mask\"\
+    l22 =\"Recommended 90-100px\"\
+    l23 =\"You do not need to type numeric units, the default is PX\"\
+    l24 =\"Set text size\"\
+    l25 =\"Default size 23DP\"\
+    l26 =\"Set text color\"\
+    l27 =\"OK\"\
+    l28 =\"Cancel\"\
+\
+    l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+    l30=\"NOW\"\
+    l31=\"LATER\"\
+    l32=\"When do you want to update the configuration？\"\
+  end\
+\
+\
+\
+\
+\
+\
+require\"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+\
+require \"import\"\
+import \"android.app.*\"\
+import \"android.os.*\"\
+import \"android.widget.*\"\
+import \"android.view.*\"\
+import \"android.content.Context\"\
+import \"android.content.Intent\"\
+import \"android.app.PendingIntent\"\
+import \"android.app.Notification\"\
+import \"android.content.Intent\"\
+import \"android.net.Uri\"\
+import \"android.provider.Settings\"\
+local height=activity.getResources().getDimensionPixelSize(activity.getResources().getIdentifier(\"status_bar_height\",\"dimen\",\"android\"));\
+\
+\
+\
+布n局=\
+--主框架\
+\
+{\
+  LinearLayout;--线性布局\
+  layout_width='match_parent';--布局宽度\
+  layout_height='match_parent';--布局高度\
+  background='#FFFFFFFF';--布局背景颜色(或者图片路径)\
+  id='ars';\
+  {\
+    LinearLayout,--线性布局\
+    orientation='vertical',--方向\
+    layout_width='fill',--宽度\
+    layout_height='wrap',--高度\
+    background='#f1f3f5',--背景颜色或图片路径\
+    {\
+      CardView;--卡片控件\
+      layout_margin='8dp';--边距\
+      layout_gravity='center';--重力\
+      --左:left 右:right 中:center 顶:top 底:bottom\
+      elevation='0dp';--阴影\
+      layout_width='fill';--宽度\
+      layout_height=height;--高度\
+      CardBackgroundColor='#f1f3f5';--颜色\
+      radius='';--圆角\
+    };\
+    {\
+      CardView;--卡片控件\
+      layout_margin='15dp';--边距\
+      layout_gravity='center|top';--重力\
+      --左:left 右:right 中:center 顶:top 底:bottom\
+      elevation='0dp';--阴影\
+      layout_width='fill';--宽度\
+      layout_height='5%h';--高度\
+      CardBackgroundColor='#f1f3f5';--颜色;\
+      radius='8dp';--圆角\
+      {\
+        TextView;--文本控件\
+        layout_width='fill';--文本宽度\
+        layout_height='fill';--文本高度\
+        gravity='left|center';--重力属性\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        textColor='#000000';--文字颜色\
+        text='新建应用';--显示的文字\
+        textSize='20dp';--文字大小\
+      };\
+      {\
+        ImageView;--图片控件\
+        src='gb.png';--图片路径\
+        layout_width='35dp';--图片宽度\
+        layout_height='35dp';--图片高度\
+        scaleType='fitXY';--图片显示类型\
+        layout_gravity='center|right';--卡片重力\
+        --左:left 右:right 中:center 顶:top 底:bottom\
+        id='关闭';\
+\
+      };\
+\
+\
+    };\
+\
+\
+    --纵向滚动框架\
+    {\
+      ScrollView,\
+      layout_width=\"match_parent\";\
+      layout_height=\"match_parent\";\
+      VerticalScrollBarEnabled=false;\
+\
+      {\
+        LinearLayout;--线性布局\
+        Orientation='horizontal';--布局方向\
+        layout_width='match_parent';--布局宽度\
+        layout_height='match_parent';--布局高度\
+        background='#f1f3f5';--布局背景颜色\
+        id='ars';\
+\
+\
+        -- -----------左边竖布局开始--------------\
+        --左线程框架\
+\
+        {\
+          LinearLayout;\
+          orientation=\"vertical\";\
+          layout_width=\"fill\";\
+          layout_height=\"match_parent\";\
+          layout_marginLeft=\"\";\
+\
+          {\
+            EditText;\
+            hint=\"应用名称\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit1\";\
+          };\
+          {\
+            EditText;\
+            hint=\"应用包名\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit2\";\
+          };\
+          {\
+            EditText;\
+            hint=\"应用版本\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit3\";\
+          };\
+          {\
+            EditText;\
+            hint=\"更新时间（不填默认当前日期，精确到日）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+            id=\"edit4\";\
+          };\
+          {\
+            EditText;\
+            hint=\"开发者\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit5\";\
+          };\
+          {\
+            EditText;\
+            hint=\"联系方式\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit6\";\
+          };\
+          {\
+            EditText;\
+            hint=\"大小（不填默认为未知）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit7\";\
+          };\
+          {\
+            EditText;\
+            hint=\"下载链接\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit8\";\
+          };\
+          {\
+            EditText;\
+            hint=\"应用介绍（不填默认为未知）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+            id=\"edit9\";\
+          };\
+\
+          {\
+            EditText;\
+            hint=\"版本特性（不填默认为未知）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            -- InputType=\"numberDecimal\";--设置只可输入数字和点\
+            id=\"edit20\";\
+          };\
+          {\
+            EditText;\
+            hint=\"应用类别\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit10\";\
+          };\
+          {\
+            EditText;\
+            hint=\"系统（不填默认Android/HarmonyOS）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit11\";\
+          };\
+          {\
+            EditText;\
+            hint=\"介绍图1（不填默认logo补位）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit12\";\
+          };\
+          {\
+            EditText;\
+            hint=\"介绍图2（不填默认logo补位）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit13\";\
+          };\
+          {\
+            EditText;\
+            hint=\"介绍图3（不填默认logo补位）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit14\";\
+          };\
+          {\
+            EditText;\
+            hint=\"介绍图4（不填默认logo补位）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit15\";\
+          };\
+          {\
+            EditText;\
+            hint=\"介绍图5（不填默认logo补位）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit16\";\
+          };\
+          {\
+            EditText;\
+            hint=\"介绍图6（不填默认logo补位）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit17\";\
+          };\
+          {\
+            EditText;\
+            hint=\"应用图标\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            layout_gravity=\"center\",\
+            id=\"edit18\";\
+          };\
+          {\
+            EditText;\
+            hint=\"适用于YUE的应用标识（不填默认为未知）\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            InputType=\"number\";\
+            layout_gravity=\"center\",\
+            id=\"edit19\";\
+          };\
+         {\
+            EditText;\
+            hint=\"云储文档编码\";\
+            layout_marginTop=\"5dp\";\
+            layout_width=\"80%w\";\
+            InputType=\"number\";\
+            layout_gravity=\"center\",\
+            id=\"edit22\";\
+          };\
+          {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='200dp';--宽度\
+            layout_height='35dp';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='18dp';--圆角\
+            id='完成';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor='#FF075AF4';--文字颜色\
+              text='完成';--显示的文字\
+              textSize='18dp';--文字大小\
+            };\
+          };\
+         {\
+            CardView;--卡片控件\
+            layout_margin='8dp';--边距\
+            layout_gravity='center';--重力\
+            --左:left 右:right 中:center 顶:top 底:bottom\
+            elevation='0dp';--阴影\
+            layout_width='200dp';--宽度\
+            layout_height='35dp';--高度\
+            CardBackgroundColor='#ffffffff';--颜色\
+            radius='18dp';--圆角\
+            id='关闭';\
+            {\
+              TextView;--文本控件\
+              layout_width='fill';--文本宽度\
+              layout_height='fill';--文本高度\
+              gravity='center';--重力属性\
+              textColor='#FF075AF4';--文字颜色\
+              text='返回';--显示的文字\
+              textSize='18dp';--文字大小\
+            };\
+          };\
+{\
+CardView;--卡片控件\
+layout_margin='8dp';--边距\
+layout_gravity='center';--重力\
+--左:left 右:right 中:center 顶:top 底:bottom\
+elevation='0dp';--阴影\
+layout_width='fill';--宽度\
+layout_height='50%w';--高度\
+CardBackgroundColor='#F1F3F5';--颜色\
+radius='8dp';--圆角\
+};\
+        };\
+      };\
+    };\
+  };\
+};\
+\
+--activity.setContentView(loadlayout(布n局))\
+\
+\
+drawerLayout.getParent().addView(loadlayout(布n局))\
+\
+\
+\
+关闭.onClick=function()--点击事件\
+  ars.setVisibility(View.GONE)\
+end;\
+-----------------------------------\
+\
+完成.onClick=function()--点击事件\
+  \
+    if edit4.Text ==\"\"then edit4.Text=os.date(\"%Y年%m月%d日\")\13\
+      else\
+      end\
+     if edit19.Text ==\"\"then edit19.Text=\"未知\"\
+      else\
+      end\
+    if edit9.Text ==\"\"then edit9.Text=\"未知\"\
+      else\
+      end\
+    if edit7.Text ==\"\"then edit7.Text=\"未知\"\
+      else\
+      end\
+    if edit11.Text ==\"\"then edit11.Text=\"Android/HarmonyOS\"\
+      else\
+      end\
+    if edit12.Text ==\"\"then edit12.Text=edit18.Text\
+      else\
+      end\
+    if edit13.Text ==\"\"then edit13.Text=edit18.Text\
+      else\
+      end\
+      if edit14.Text ==\"\"then edit14.Text=edit18.Text\
+      else\
+      end\
+    if edit15.Text ==\"\"then edit15.Text=edit18.Text\
+      else\
+      end\
+      if edit16.Text ==\"\"then edit16.Text=edit18.Text\
+      else\
+      end\
+    if edit17.Text ==\"\"then edit17.Text=edit18.Text\
+      else\
+      end\
+    if edit20.Text ==\"\"then edit20.Text=\"未知\"\
+      else\
+      end\
+     文本=[[\
+<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">\
+<html><head>\
+   <meta charset=\"utf-8\">\
+   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no\">\
+   <meta name=\"referrer\" content=\"never\">\
+   <meta http-equiv=\"Cache-Control\" content=\"no-siteapp,must-revalidate\">\
+   <meta name=\"sharename\" itemprop=\"name\" content=\"软件名称\">\
+   <meta name=\"keywords\" itemprop=\"keywords\" content=\"   软件简介\">\
+   <meta name=\"shareimage\" itemprop=\"image\" content=\"https://home.yuesq.cf/favicon.png\">\
+   <meta name=\"description\" itemprop=\"description\" content=\"   简介\">\
+   <meta name=\"yunchu-template\" content=\"2\">  <meta name=\"is-edit\" content=\"0\">\
+   <meta name=\"author\" content=\"©0047ol\">\
+   <meta name=\"copyright\" content=\"©YUE\">\
+   <title>]]..edit1.Text..[[</title>\
+   <link type=\"image/png\" rel=\"shortcut icon\" href=\"]]..edit18.Text..[[\">\
+   <link type=\"text/css\" rel=\"stylesheet\" href=\"//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css\">\
+  </head><body class=\"mdui-theme-primary-blue mdui-theme-accent-blue mdui-color-grey-50 mdui-theme-layout-auto main-layout mdui-loaded\">\
+   <div class=\"mdui-valign mdui-color-white mdui-p-t-2 mdui-p-x-2\">\
+    <a class=\"mdui-btn mdui-btn-icon mdui-text-color-theme-icon mdui-hidden\"><i class=\"mdui-icon material-icons\">share</i></a>\
+    <div class=\"mdui-toolbar-spacer\"></div>\
+ \
+    </div>\
+   <div class=\"mdui-valign mdui-color-white mdui-p-b-4\">\
+    <div class=\"mdui-center\">\
+     <img class=\"mdui-center mdui-shadow-1 app_icon\" src=\"]]..edit18.Text..[[\" width=\"70px\" height=\"70px\" style=\"border-radius: 5px;\">\
+     <p class=\"mdui-text-center mdui-typo-title doc_tle\">]]..edit1.Text..[[</p>\
+     <p class=\"mdui-text-center mdui-typo-subheading-opacity\">ID『]]..edit19.Text..[[』   | 中文 | <span id=\"/]]..edit22.Text..[[.html\" class=\"waline-visitor-count\"></span>+次浏览|  ]]..edit10.Text..[[</p><div class=\"mdui-valign\">\
+   \
+    <a class=\"mdui-btn mdui-center mdui-color-theme-accent down_url\" id=\"更新链接\" href=\"]]..edit8.Text..[[\" id=\"更新链接\" target=\"_blank\"><i class=\"mdui-icon mdui-icon-left material-icons\">android</i> 获取应用 <font class=\"app_ver\"> </font></a>\9</div>\
+   </div>\
+   </div>\
+   <div class=\"mdui-m-t-1 mdui-p-t-2 mdui-p-x-2 mdui-color-white\">\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>版本特性\
+  \
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2 update_log\">]]..edit20.Text..[[</div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>应用截图\
+   </div>\
+    <div class=\"mdui-p-a-2\">\
+<style>\
+.appshot{\
+overflow: auto; \
+white-space:nowrap;\
+}\
+</style>\
+<div class=\"appshot\">\
+<a href=\"]]..edit12.Text..[[\"><img src=\"]]..edit12.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit13.Text..[[\"><img src=\"]]..edit13.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit14.Text..[[\"><img src=\"]]..edit14.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit15.Text..[[\"><img src=\"]]..edit15.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit16.Text..[[\"><img src=\"]]..edit16.Text..[[\" width:auto height=\"25%\"></a>\
+<a href=\"]]..edit17.Text..[[\"><img src=\"]]..edit17.Text..[[\" width:auto height=\"25%\"></a>\
+</div>\
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>应用介绍\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2 app_desc\">]]..edit9.Text..[[</div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>详细信息\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>应用包名：<font class=\"package_name\">]]..edit2.Text..[[</font></div>\
+     <div>应用版本：<font class=\"app_version\">]]..edit3.Text..[[</font></div>\
+     <div>大小：]]..edit7.Text..[[</div>\
+     <div>更新时间：<font class=\"update_time\">]]..edit4.Text..[[</font></div>\
+     <div>开发者：<font class=\"author\">]]..edit5.Text..[[</font></div>\
+     <div>系统支持：]]..edit11.Text..[[</div>\
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>所需权限\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>\
+完全的网络访问权限<br>查看网络连接<br>读取存储卡中的内容<br>修改或删除 SD 卡中的内容<br>访问下载管理器。<br>防止手机休眠<br>高级下载管理器功能。<br>从您的媒体收藏中读取位置信息</div>\
+   \
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>联系方式\
+   </div>\
+    <div class=\"mdui-typo-subheading-opacity mdui-p-a-2\">\
+     <div>]]..edit6.Text..[[</div>\
+   \
+    </div>\
+    <div class=\"mdui-typo-title\">\
+    <font class=\"mdui-text-color-blue-accent\">| </font>评论区\
+    </div>\
+<!-- 使用短链接获取最新的默认文件 --> <script src=\"//cdn.jsdelivr.net/npm/@waline/client\"></script> <!-- 省略版本号以自动应用最新版本 --> <script src=\"//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js\"></script> <!-- 或者手动指定最新版本 --> <script src=\"//cdn.jsdelivr.net/@waline/clien@latest/dist/Waline.min.js\"></script>\
+\
+  <div id=\"waline\"></div>\
+  <script>\
+    Waline({\
+      \
+      el: '#waline',\
+      serverURL: 'https://yue.vercel.app',\
+      visitor: true, // 阅读量统计\
+    \
+    // 设置 emoji 为QQ与哔哩哔哩\
+  emoji: [\
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',\
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',\
+  ],\
+});\
+  </script>\
+   </div>\
+   <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js\"></script>\
+   <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/gh/0047ol/yunchu@master/assets/js/clipboard.min.js\"></script>\
+   <script>\
+//\
+document.getElementsByClassName(\"vpower\")[0].setAttribute(\"style\",\"display:none\");\
+document.getElementsByTagName(\"svg\")[0].setAttribute(\"style\",\"display:none\");\
+   </script>\
+   </body>\
+   </html>]] \
+     import \"android.content.*\"\
+        activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+      \
+     print(l6)\
+     预览.setText(文本)\
+     local f=io.open(\"/storage/emulated/0/UYS/预览.html\",'r')\
+if f~=nil\
+  then\
+ else\
+  io.open(\"/storage/emulated/0/UYS/预览.html\", 'w')\
+\
+ \
+end\
+\
+   \
+  io.open(\"/storage/emulated/0/UYS/预览.html\",\"w+\"):write(文本):close()\
+  llq.loadUrl(\"file:///sdcard/UYS/预览.html\")--加载本地文件\
+\
+\
+\
+end\
+\
+end;\
+\
+\
+\
+     \
+    end;\
+  \
+  \
+  b2.onClick=function()--点击事件\
+      b2.setCardBackgroundColor(0xFFE7E8EA)\
+      task(80,function()\
+        b2.setCardBackgroundColor(0xffffffff)\
+      end)\
+     \
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+l1=\"悦心应用市场超文本标记语言源代码生成\"\
+l2=\"应用唯一身份标识\"\
+l3=\"超链接目标地址\"\
+l4=\"图像链接\"\
+l5=\"请设置\"\
+l6=\"复制成功\"\
+l7=\"自定义圆角遮罩\"\
+l8=\"统一图标圆角样式\"\
+l9=\"文本参数配置\"\
+l10=\"文本大小\"\
+l11=\"轻触设置文本大小\"\
+l12=\"文本颜色\"\
+l13=\"轻触设置文本颜色\"\
+l14=\"默认字体样式\"\
+l15=\"由系统服务商提供\"\
+l16=\"Copy\"\
+l17=\"轻触设置字体样式\"\
+\
+l18=\"设置图标大小\"\
+l19=\"默认大小为90dp\"\
+l20=\"您无需键入数值单位，默认单位是dp\"\
+\
+l21=\"设置圆角遮罩\"\
+l22=\"推荐90-100px\"\
+l23=\"您无需键入数值单位，默认单位是px\"\
+\
+l24=\"设置文本大小\"\
+l25=\"默认大小为23dp\"\
+\
+l26=\"设置文本颜色\"\
+\
+l27=\"好的\"\
+l28=\"取消\"\
+\
+l29=\"应用配置已更改，重新进入应用以更新配置\"\
+ l30=\"现在\"\
+ l31=\"稍后\"\
+ l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+else\
+l1=\"YueStore HTML Generation\"\
+l2=\"APP ID\"\
+l3=\"Href\"\
+l4=\"Image Url\"\
+l5=\"Please Set\"\
+l6=\"The no rounded corners icon\"\
+l7=\"Custom Rounded Corners\"\
+l8=\"Tap to set rounded corners\"\
+l9=\"Text parameter configuration\"\
+l10=\"Text Size\"\
+l11=\"Tap to set text size\"\
+l12=\"Text Color\"\
+l13=\"Tap to set text color\"\
+l14=\"Default Font\"\
+l15=\"The font provided by the system manufacturer\"\
+l16=\"Custom Font\"\
+l17=\"Tap to set font\"\
+\
+l18 =\"Set icon size\"\
+l19 =\"Default size is 90DP\"\
+l20 =\"You do not need to type numeric units, the default is DP\"\
+l21 =\"Set corner mask\"\
+l22 =\"Recommended 90-100px\"\
+l23 =\"You do not need to type numeric units, the default is PX\"\
+l24 =\"Set text size\"\
+l25 =\"Default size 23DP\"\
+l26 =\"Set text color\"\
+l27 =\"OK\"\
+l28 =\"Cancel\"\
+\
+l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+ l30=\"NOW\"\
+ l31=\"LATER\"\
+ l32=\"When do you want to update the configuration？\"\
+end\
+\
+\
+\
+InputLayout={\
+  LinearLayout;\
+  orientation=\"vertical\";\
+  Focusable=true,\
+  FocusableInTouchMode=true,\
+  {\
+    TextView;\
+\
+    textSize=\"15sp\",\
+    layout_marginTop=\"10dp\";\
+    layout_marginLeft=\"3dp\",\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    text=\"\";\
+\
+  };\
+  {\
+    EditText;\
+    hint=l2;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    InputType=\"numberDecimal\";--设置只可输入数字和点\
+    id=\"edit4\";\
+  };\
+  {\
+    EditText;\
+    hint=l3;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"edit5\";\
+  };\
+  {\
+    EditText;\
+    hint=l4;\
+    layout_marginTop=\"5dp\";\
+    layout_width=\"80%w\";\
+    layout_gravity=\"center\",\
+    id=\"edit6\";\
+  };\
+\
+};\
+AlertDialog.Builder(this)\
+.setTitle(l1)\
+.setView(loadlayout(InputLayout))\
+.setPositiveButton(l27,{onClick=\
+\
+  function(v)\
+    if tostring(edit4.Text) < tostring(2)then\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"13%%\"/></a> <div id=\"工具类埋点\"></div>'\
+\
+          文本=string.gsub(content,'<div id=\"工具类埋点\"></div>',new,1)\
+import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+ print(l6)\
+        end)\
+      end\
+     elseif tostring(edit4.Text) < tostring(3) then\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"13%%\"/></a> <div id=\"生活学习埋点\"></div>'\
+          --  print(new)\
+\
+          文本=string.gsub(content,'<div id=\"生活学习埋点\"></div>',new,1)\
+          --先导入包\
+          import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+          print(l6)\
+\
+        end)\
+      end\
+     else\
+      if edit5.Text ==\"\" then print(l5) elseif edit6.Text ==\"\" then print(l5)else\
+\
+        url=\"https://wds.ecsxs.com/211063.html\"\
+        Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+          --  print(content)\
+          new= '<a id=\"'..edit4.Text..'\"href=\"'..edit5.Text..'\" style=\"margin-top:10px;margin-left:10px;\"><img src=\"'..edit6.Text..'\" width=\"13%%\"/></a> <div id=\"影音埋点\"></div>'\
+          print(new)\
+          文本=string.gsub(content,'<div id=\"影音埋点\"></div>',new,1)\
+          --先导入包\
+          import \"android.content.*\"\
+          activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本)\
+          print(l6)\
+预览.setText(文本)\
+local f=io.open(\"/storage/emulated/0/UYS/预览.html\",'r')\
+if f~=nil\
+  then\
+ else\
+  io.open(\"/storage/emulated/0/UYS/预览.html\", 'w')\
+\
+ \
+end\
+\
+   \
+  io.open(\"/storage/emulated/0/UYS/预览.html\",\"w+\"):write(文本):close()\
+  \
+llq.loadUrl(\"file:///sdcard/UYS/预览.html\")--加载本地文件\
+\
+        end)\
+      end\
+    end\
+end})\
+.setNegativeButton(l28,nil)\
+\
+.show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+    end;\
+  \
+  \
+  b3.onClick=function()--点击事件\
+      b3.setCardBackgroundColor(0xFFE7E8EA)\
+      task(80,function()\
+        b3.setCardBackgroundColor(0xffffffff)\
+      end)\
+     \
+for account in io.lines(\"/storage/emulated/0/UYS/语言配置.txt\") do\
+  local content=account\
+  local 应用=content:match(\"【应用】(.-)【应用】\")\
+  if 应用==\"0\" then\
+    l1=\"悦心应用市场超文本标记语言源代码生成\"\
+    l2=\"应用云储文档唯一标识\"\
+    l3=\"更改版本\"\
+    l4=\"更新时间\"\
+    l5=\"请设置\"\
+    l6=\"复制成功\"\
+    l7=\"自定义圆角遮罩\"\
+    l8=\"更新链接\"\
+    l9=\"更新特性\"\
+    l10=\"文本大小\"\
+    l11=\"轻触设置文本大小\"\
+    l12=\"文本颜色\"\
+    l13=\"轻触设置文本颜色\"\
+    l14=\"默认字体样式\"\
+    l15=\"由系统服务商提供\"\
+    l16=\"Copy\"\
+    l17=\"轻触设置字体样式\"\
+\
+    l18=\"设置图标大小\"\
+    l19=\"默认大小为90dp\"\
+    l20=\"您无需键入数值单位，默认单位是dp\"\
+\
+    l21=\"设置圆角遮罩\"\
+    l22=\"推荐90-100px\"\
+    l23=\"您无需键入数值单位，默认单位是px\"\
+\
+    l24=\"设置文本大小\"\
+    l25=\"默认大小为23dp\"\
+\
+    l26=\"设置文本颜色\"\
+\
+    l27=\"好的\"\
+    l28=\"取消\"\
+\
+    l29=\"应用配置已更改，重新进入应用以更新配置\"\
+    l30=\"现在\"\
+    l31=\"稍后\"\
+    l32=\"您想现在更新配置文件吗？\"\
+\
+\
+\
+   else\
+    l1=\"YueStore HTML Generation\"\
+    l2=\"APP ID\"\
+    l3=\"Href\"\
+    l4=\"Image Url\"\
+    l5=\"Please Set\"\
+    l6=\"The no rounded corners icon\"\
+    l7=\"Custom Rounded Corners\"\
+    l8=\"Tap to set rounded corners\"\
+    l9=\"Text parameter configuration\"\
+    l10=\"Text Size\"\
+    l11=\"Tap to set text size\"\
+    l12=\"Text Color\"\
+    l13=\"Tap to set text color\"\
+    l14=\"Default Font\"\
+    l15=\"The font provided by the system manufacturer\"\
+    l16=\"Custom Font\"\
+    l17=\"Tap to set font\"\
+\
+    l18 =\"Set icon size\"\
+    l19 =\"Default size is 90DP\"\
+    l20 =\"You do not need to type numeric units, the default is DP\"\
+    l21 =\"Set corner mask\"\
+    l22 =\"Recommended 90-100px\"\
+    l23 =\"You do not need to type numeric units, the default is PX\"\
+    l24 =\"Set text size\"\
+    l25 =\"Default size 23DP\"\
+    l26 =\"Set text color\"\
+    l27 =\"OK\"\
+    l28 =\"Cancel\"\
+\
+    l29=\"A new source of updates is ready to change the configuration the next time you enter the APP.\"\
+    l30=\"NOW\"\
+    l31=\"LATER\"\
+    l32=\"When do you want to update the configuration？\"\
+  end\
+\
+\
+\
+  InputLayout={\
+    LinearLayout;\
+    orientation=\"vertical\";\
+    Focusable=true,\
+    FocusableInTouchMode=true,\
+    {\
+      TextView;\
+\
+      textSize=\"15sp\",\
+      layout_marginTop=\"10dp\";\
+      layout_marginLeft=\"3dp\",\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      text=\"\";\
+\
+    };\
+    {\
+      EditText;\
+      hint=l2;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      InputType=\"number\";--设置只可输入数字和点\
+      id=\"edit4\";\
+    };\
+    {\
+      EditText;\
+      hint=l3;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit5\";\
+    };\
+    {\
+      EditText;\
+      hint=l4;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit6\";\
+    };\
+    {\
+      EditText;\
+      hint=l8;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit7\";\
+    };\
+    {\
+      EditText;\
+      hint=l9;\
+      layout_marginTop=\"5dp\";\
+      layout_width=\"80%w\";\
+      layout_gravity=\"center\",\
+      id=\"edit8\";\
+    };\
+\
+  };\
+  AlertDialog.Builder(this)\
+  .setTitle(l1)\
+  .setView(loadlayout(InputLayout))\
+  .setPositiveButton(l27,{onClick=\
+\
+    function(v)\
+      --[[  原1=edit7.Text\
+    原2=string.gsub(原1,\"%%\",\"%%\"..\"%%\")\
+   --   原3=string.gsub(原2,\"/\",\"%%\"..\"%/\")\
+  --原4=string.gsub(原2,\"%*\",\"%%\"..\"%*\")\
+ -- 原5=string.gsub(原2,\"%.\",\"%%\"..\"%.\")\
+    print(原2)\
+   ]]\
+\
+      url=\"https://wds.ecsxs.com/\"..edit4.Text..\".html\"\
+      Http.get(url,nil,\"UTF-8\",nil,function(code,content,cookie,header)\
+        --  print(content)\
+        if edit5.Text ==\"\"then print(l5)\
+          else\
+        原版本= '<font class=\"app_version\">'..string.match(content,'<font class=\"app_version\">(.-)</font>')..'</font>'\
+        新版本= '<font class=\"app_version\">'..edit5.Text..'</font>'\
+\
+        文本1=string.gsub(content,原版本,新版本,1)\
+        \
+      if edit6.Text==\"\" then print(l5) else\
+        \
+        原更新时间= '<font class=\"update_time\">'..string.match(content,'<font class=\"update_time\">(.-)</font>')..'</font>'\
+        新更新时间= '<font class=\"update_time\">'..edit6.Text..'</font>'\
+        文本2=string.gsub(文本1,原更新时间,新更新时间,1)\
+       \
+      if edit7.Text ==\"\" then print(l5) else\
+        \
+        文本3=string.gsub(edit7.Text,\"%%\",\"%%\"..\"%%\")\
+        原1=string.match(content,'id=\"更新链接\"(.-)id=\"更新链接\"')\
+        --  原2=string.gsub(原1,\"%%\",\"%%\"..\"%%\")\
+\
+        原更新链接= 'id=\"更新链接\"'..原1..'id=\"更新链接\"'\
+        --  print(原更新链接)\
+        新更新链接= 'id=\"更新链接\"href='..'\"'..文本3..'\"'..'id=\"更新链接\"'\
+        -- print(新更新链接)\
+        文本4=string.gsub(文本2,原更新链接,新更新链接,1)\
+        \
+      if edit8.Text==\"\" then print(l5) else \
+        原更新特性= 'update_log\">'..string.match(content,'update_log\">(.-)</div>')..'</div>'\
+        新更新特性= 'update_log\">'..edit8.Text..'</div>'\
+        -- print(文本2)\
+        -- print(文本4)\
+        文本5=string.gsub(文本4,原更新特性,新更新特性,1)\
+        \
+       -- print(文本5)\
+        import \"android.content.*\"\
+        activity.getSystemService(Context.CLIPBOARD_SERVICE).setText(文本5)\
+        print(l6)\
+        预览.setText(文本5)\
+        local f=io.open(\"/storage/emulated/0/UYS/预览.html\",'r')\
+if f~=nil\
+  then\
+ else\
+  io.open(\"/storage/emulated/0/UYS/预览.html\", 'w')\
+\
+ \
+end\
+\
+   \
+  io.open(\"/storage/emulated/0/UYS/预览.html\",\"w+\"):write(文本5):close()\
+  llq.loadUrl(\"file:///sdcard/UYS/预览.html\")--加载本地文件\
+\
+\
+        end\
+      end\
+    end\
+  end\
+      end)\
+\
+\
+  end})\
+  .setNegativeButton(l28,nil)\
+\
+  .show()\
+\
+\
+end\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+    end;\
+" ;
+      ["网页即将加载"]	= "--浏览器即将加载新的网页时执行的事件\
+\
+--接收参数\
+浏览器对象,网页链接=..." ;
+      ["收到新标题"]	= "--浏览器加载新页面并获得新标题时执行的事件\
+\
+--接收参数\
+浏览器对象，新标题=..." ;
+      } ;
+  } ;
